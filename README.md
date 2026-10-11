@@ -16,6 +16,8 @@ underneath to shipping models in production. Inspired by the roadmap.sh style.
   the same shortcut again sets it back). Progress bars update everywhere.
 - **Filter by level.** Show *Basic*, *Intermediate* and/or *Advanced* topics, in any
   combination. It only changes the view: other topics fade out, nothing else changes.
+
+![The level filter: Basic and Intermediate on, Advanced topics faded out](docs/screenshot-filter.webp)
 - **Notes and search.** Per-topic notes that save automatically; search with `/`.
 - **Saved to a local database.** Progress is saved automatically to a SQLite file in the
   project folder (see below). Export/import as JSON from **Data**; files from
