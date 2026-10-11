@@ -1,7 +1,7 @@
-// The "Backup" dialog: copy progress as JSON, restore it, or reset everything.
+// The "Your data" dialog: where progress is saved, export (download / copy), import and reset.
 
 import { D, el } from '../util.js';
-import { exportBackup, importBackup, resetAll } from '../store.js';
+import { exportBackup, importBackup, resetAll, sync } from '../store.js';
 import { t } from '../strings.js';
 import { actions } from '../state.js';
 
@@ -12,7 +12,9 @@ export function isModalOpen() { return modal && !modal.hidden; }
 export function closeModal() { modal.hidden = true; }
 
 function openModal() {
-  $('bkOut').value = exportBackup();
+  const w = $('bkWhere');
+  w.dataset.mode = sync.mode;
+  w.textContent = sync.mode === 'db' ? t('whereDb', { file: sync.file, kind: sync.storage === 'sqlite' ? 'SQLite' : 'JSON' }) : t('whereBrowser');
   $('bkCopyMsg').textContent = ''; $('bkLoadMsg').textContent = ''; $('bkIn').value = '';
   resetRow();
   modal.hidden = false;
@@ -31,7 +33,7 @@ function resetRow() {
     r.appendChild(el('span', 'confirm', t('sure')));
     const y = el('button', 'btn warn', t('yes'));
     y.type = 'button';
-    y.onclick = () => { resetAll(); afterChange(); r.innerHTML = ''; r.appendChild(el('span', 'msg', t('resetDone'))); $('bkOut').value = exportBackup(); };
+    y.onclick = () => { resetAll(); afterChange(); r.innerHTML = ''; r.appendChild(el('span', 'msg', t('resetDone'))); };
     const n = el('button', 'btn', t('no'));
     n.type = 'button'; n.onclick = resetRow;
     r.appendChild(y); r.appendChild(n);
@@ -55,10 +57,17 @@ export function initBackup() {
   $('bkBtn').addEventListener('click', openModal);
   $('bkClose').addEventListener('click', closeModal);
   modal.addEventListener('click', (ev) => { if (ev.target === modal) closeModal(); });
+  $('bkDownload').addEventListener('click', () => {
+    const a = el('a');
+    a.href = URL.createObjectURL(new Blob([exportBackup()], { type: 'application/json' }));
+    a.download = 'ai-roadmap-progress-' + new Date().toISOString().slice(0, 10) + '.json';
+    D.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  });
   $('bkCopy').addEventListener('click', () => {
-    const ta = $('bkOut'), msg = $('bkCopyMsg');
-    const fallback = () => { ta.focus(); ta.select(); msg.className = 'msg err'; msg.textContent = t('copyFail'); };
-    try { navigator.clipboard.writeText(ta.value).then(() => { msg.className = 'msg'; msg.textContent = t('copied'); }, fallback); } catch (e) { fallback(); }
+    const msg = $('bkCopyMsg');
+    const fail = () => { msg.className = 'msg err'; msg.textContent = t('copyFail'); };
+    try { navigator.clipboard.writeText(exportBackup()).then(() => { msg.className = 'msg'; msg.textContent = t('copied'); }, fail); } catch (e) { fail(); }
   });
   $('bkLoad').addEventListener('click', () => importText($('bkIn').value));
   $('bkFile').addEventListener('change', (ev) => {

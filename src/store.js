@@ -1,26 +1,82 @@
-// Progress, notes and checklist ticks live in the browser's localStorage.
+// Progress, notes and checklist ticks.
 // Format: { st: { [topicId]: 1 | 2 | 3 }, nt: { [id]: "note" }, ck: { [id]: { [itemKey]: true } } }
 //   st: 1 = learning, 2 = learned, 3 = skipped (topics at 0 are not stored)
+//
+// Where it is saved: when the project runs with `npm run dev`, the local server keeps it in
+// a SQLite database in the project (data/progress.db; see server.mjs). Without the server
+// (e.g. `python3 -m http.server`) it stays in this browser's localStorage only.
+// localStorage is always written as well, as a cache and as the fallback.
 
 const KEY = 'ai-roadmap-v1';
+const API = 'api/state';
 export const LEARNING = 1, LEARNED = 2, SKIPPED = 3;
 
 export const store = { st: {}, nt: {}, ck: {} };
 
-const obj = (x) => (x && typeof x === 'object' ? x : {});
+// Save status for the UI: mode 'db' (local server) or 'browser'; saving / error while in 'db'.
+export const sync = { mode: 'browser', storage: '', file: '', saving: false, error: false };
+const listeners = new Set();
+export function onSync(fn) { listeners.add(fn); fn(sync); }
+function setSync(patch) { Object.assign(sync, patch); listeners.forEach((fn) => fn(sync)); }
 
-try {
-  const raw = localStorage.getItem(KEY);
-  if (raw) {
-    const o = JSON.parse(raw);
-    if (o && typeof o === 'object') {
-      store.st = obj(o.st); store.nt = obj(o.nt); store.ck = obj(o.ck);
-    }
+const obj = (x) => (x && typeof x === 'object' && !Array.isArray(x) ? x : {});
+const hasData = (o) => !!o && ['st', 'nt', 'ck'].some((k) => Object.keys(obj(o[k])).length > 0);
+function apply(o) { store.st = obj(o.st); store.nt = obj(o.nt); store.ck = obj(o.ck); }
+
+// `pending` marks changes the database has not confirmed yet (server stopped, tab closed early).
+function writeLocal(pending) {
+  try { localStorage.setItem(KEY, JSON.stringify({ ...store, _pending: !!pending })); } catch (e) { /* private window etc. */ }
+}
+function readLocal() {
+  try { const raw = localStorage.getItem(KEY); return raw ? JSON.parse(raw) : null; } catch (e) { return null; }
+}
+
+// Loads progress at startup. The first time the database is used, progress that is already
+// in this browser is moved into it; unsaved browser changes are sent before anything is read.
+export async function initStore() {
+  const local = readLocal();
+  if (local) apply(local);
+  let remote = null;
+  try {
+    const r = await fetch(API, { cache: 'no-store' });
+    if (r.ok && (r.headers.get('content-type') || '').includes('application/json')) remote = await r.json();
+  } catch (e) { /* no local server */ }
+  if (!remote) { setSync({ mode: 'browser' }); return; }
+  setSync({ mode: 'db', storage: remote.storage, file: remote.file });
+  if (hasData(local) && (local._pending || !hasData(remote))) await push();
+  else { apply(remote); writeLocal(false); }
+}
+
+let timer = 0, retry = 0;
+async function push() {
+  clearTimeout(timer); clearTimeout(retry);
+  timer = 0;
+  setSync({ saving: true });
+  try {
+    const r = await fetch(API, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(store) });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    writeLocal(false);
+    setSync({ saving: false, error: false });
+  } catch (e) {
+    setSync({ saving: false, error: true });
+    retry = setTimeout(push, 5000);
   }
-} catch (e) { /* private window etc.: continue with empty state */ }
+}
 
 export function save() {
-  try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) { /* ignore */ }
+  if (sync.mode === 'browser') { writeLocal(false); return; }
+  writeLocal(true);
+  clearTimeout(timer);
+  timer = setTimeout(push, 300);
+}
+
+// Send a change that is still waiting when the tab is closed.
+if (typeof window !== 'undefined') {
+  window.addEventListener('pagehide', () => {
+    if (!timer) return;
+    clearTimeout(timer);
+    try { fetch(API, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(store), keepalive: true }); } catch (e) { /* stays pending */ }
+  });
 }
 
 export function st(n) { return store.st[n.id] || 0; }

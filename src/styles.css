@@ -66,6 +66,14 @@ a { color: inherit; }
 .sres .none { display: block; color: var(--faint); cursor: default; }
 .top-r { display: flex; align-items: center; gap: 14px; }
 .overall { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; font: 11.5px var(--f-mono); color: var(--muted); white-space: nowrap; }
+.sync { display: inline-flex; align-items: center; gap: 6px; font: 11.5px var(--f-mono); color: var(--muted); white-space: nowrap; cursor: help; }
+.sync::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--faint); }
+.sync[data-state="db"]::before { background: var(--done); }
+.sync[data-state="saving"]::before { background: var(--learn); }
+.sync[data-state="error"] { color: var(--danger); }
+.sync[data-state="error"]::before { background: var(--danger); }
+.where { padding: 10px 12px; border-radius: 10px; font-size: 13px; background: var(--done-bg); border-left: 3px solid var(--done); }
+.where[data-mode="browser"] { background: var(--learn-bg); border-left-color: var(--learn); }
 .obar { width: 150px; height: 4px; border-radius: 4px; background: linear-gradient(90deg, var(--done) var(--d, 0%), var(--learn) var(--d, 0%) calc(var(--d, 0%) + var(--l, 0%)), var(--line) 0); }
 
 /* Roadmap header */
@@ -244,6 +252,7 @@ a { color: inherit; }
 @media (max-width: 759px) {
   .top { gap: 10px; padding: 0 16px; }
   .brand span:last-child, .overall { display: none; }
+  .sync { font-size: 0; gap: 0; }
   .rm { padding: 0 16px 40px; }
   .rm-head { padding: 32px 16px 8px; }
   .rm-row { grid-template-columns: 1fr; row-gap: 8px; padding: 14px 0 14px 12px; border-left: 3px solid var(--c); margin: 10px 0; }

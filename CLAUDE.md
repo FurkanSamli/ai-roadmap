@@ -9,19 +9,23 @@ commit messages) is **English only**.
 ## Running
 
 - No build step: plain HTML + CSS + ES modules, no dependencies.
-- Needs a local server: `npm run dev` (http://localhost:5174) or `python3 -m http.server 5174`.
+- `npm run dev` runs `server.mjs` (http://localhost:5174): a dependency-free Node server that
+  serves the site and saves progress to `data/progress.db` (built-in `node:sqlite`, JSON-file
+  fallback on older Node). `python3 -m http.server 5174` still works, with localStorage only.
 - Content check: `npm run check`. Run it after every change to `content/`.
 - No automated tests yet; after a change check by hand: home → field roadmap → topic roadmap,
-  the drawer (status, checklist, resources, notes), search, Esc/back, backup, and a narrow
+  the drawer (status, checklist, resources, notes), search, Esc/back, the Data dialog and the
+  save badge (also with the server stopped), and a narrow
   (phone) width. Check both light and dark mode.
 
 ## Structure
 
 ```
-index.html              Top bar, page skeleton, drawer and backup dialog
+server.mjs              Local server: static files + GET/PUT /api/state, SQLite in data/ (never served, never committed)
+index.html              Top bar, page skeleton, drawer and data dialog
 src/main.js             Entry: loads content + resources, hash routing (#/<id>?t=<id>), keyboard
 src/state.js            Shared state (view, open) and `actions` (avoids import cycles)
-src/store.js            localStorage: status (st: 1 learning, 2 learned, 3 skip), notes (nt), checklist ticks (ck), backup
+src/store.js            Status (st: 1 learning, 2 learned, 3 skip), notes (nt), ticks (ck); initStore() loads from server or localStorage, save() syncs; export/import
 src/strings.js          All UI strings; t()
 src/util.js             DOM helper el(), search fold()
 src/data/groups.js      The 5 groups (titles only; colors are CSS tokens)
@@ -32,7 +36,7 @@ src/ui/drawer.js        Topic drawer: status, plain words, what to learn, how to
 src/ui/common.js        Shared pieces: status button, level pips, progress block, topic list, click shortcuts
 src/ui/status.js        Status changes + refreshing every indicator (data-sid / data-pid)
 src/ui/search.js        Search
-src/ui/backup.js        Backup dialog
+src/ui/backup.js        Data dialog: where it is saved, export (download / copy), import, reset
 src/styles.css          All styles; colors in :root tokens (light) + prefers-color-scheme dark
 content/*.txt           Content, one file per field; order in content/index.json
 content/resources.json  Curated resources per field ("areas") and per topic ("topics"), practice ideas
@@ -49,6 +53,10 @@ scripts/check-content.mjs  Content + resources checker
   Tree so backups stay compatible.
 - Only add resource URLs you have opened and checked; prefer free resources. `k` is one of
   course, video, book, docs, article, interactive, practice.
+- Saving: always call `save()` after changing `store`; it writes localStorage and (with the server)
+  sends the whole state with a short debounce. Unconfirmed changes are marked `_pending` and
+  re-sent on the next start. `data/` must stay in `.gitignore`.
+- Database changes: add a migration in `server.mjs` and bump `PRAGMA user_version`.
 - The `localStorage` key is `ai-roadmap-v1`. If you change the stored format, bump the version
   and read/migrate the old one.
 - UI modules talk through `actions` (goTo, openTopic, closeDrawer, rerender); keep that pattern.

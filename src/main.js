@@ -12,6 +12,7 @@ import { showDrawer, hideDrawer, isOpen } from './ui/drawer.js';
 import { refreshStatus } from './ui/status.js';
 import { initSearch, focusSearch } from './ui/search.js';
 import { initBackup, isModalOpen, closeModal } from './ui/backup.js';
+import { initStore, onSync } from './store.js';
 
 async function loadContent() {
   const get = async (f) => { const r = await fetch('content/' + f); if (!r.ok) throw new Error('Could not load: ' + f); return r; };
@@ -59,13 +60,25 @@ actions.openTopic = (e) => (e.kind === 'core' ? go(model.core) : go(state.view, 
 actions.closeDrawer = () => go(state.view, null);
 actions.rerender = () => { renderRoadmap(state.view); if (state.open) showDrawer(state.open); refreshStatus(); };
 
+/* ---------- Save status badge ---------- */
+
+function initSyncBadge() {
+  const b = D.getElementById('sync');
+  onSync((s) => {
+    const k = s.mode === 'browser' ? 'browser' : s.error ? 'error' : s.saving ? 'saving' : 'db';
+    b.dataset.state = k;
+    b.textContent = t('sync_' + k);
+    b.title = t('syncTip_' + k, { file: s.file });
+  });
+}
+
 /* ---------- Start ---------- */
 
 async function start() {
   D.querySelectorAll('[data-t]').forEach((x) => { x.textContent = t(x.dataset.t); });
   D.querySelectorAll('[data-t-ph]').forEach((x) => { x.placeholder = t(x.dataset.tPh); });
   try {
-    const { src, res } = await loadContent();
+    const [{ src, res }] = await Promise.all([loadContent(), initStore()]);
     buildModel(src);
     setResources(res);
   } catch (err) {
@@ -76,6 +89,7 @@ async function start() {
   }
 
   initWires();
+  initSyncBadge();
   initSearch();
   initBackup();
   D.getElementById('brandLink').addEventListener('click', (ev) => { ev.preventDefault(); go(model.core); });

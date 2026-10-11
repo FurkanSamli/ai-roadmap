@@ -22,7 +22,8 @@
   </div>
   <div class="top-r">
     <div class="overall"><span id="overall"></span><span class="obar" id="overallBar"></span></div>
-    <button class="btn" id="bkBtn" type="button" data-t="backup">Backup</button>
+    <span class="sync" id="sync" role="status"></span>
+    <button class="btn" id="bkBtn" type="button" data-t="backup">Data</button>
   </div>
 </header>
 
@@ -41,10 +42,10 @@
 <div class="overlay" id="modal" hidden>
   <div class="card" role="dialog" aria-modal="true" aria-labelledby="bkT">
     <div class="row"><h2 id="bkT" data-t="bkTitle"></h2><button class="btn x" id="bkClose" type="button" data-t="close"></button></div>
-    <p class="tipline" data-t="bkIntro"></p>
+    <div class="where" id="bkWhere"></div>
     <h3 data-t="bkExport"></h3>
-    <textarea id="bkOut" readonly aria-label="JSON"></textarea>
-    <div class="row"><button class="btn solid" id="bkCopy" type="button" data-t="copy"></button><span class="msg" id="bkCopyMsg"></span></div>
+    <p class="tipline" data-t="bkExportP"></p>
+    <div class="row"><button class="btn solid" id="bkDownload" type="button" data-t="download"></button><button class="btn" id="bkCopy" type="button" data-t="copy"></button><span class="msg" id="bkCopyMsg"></span></div>
     <hr>
     <h3 data-t="bkImport"></h3>
     <textarea id="bkIn" data-t-ph="bkImportPh" aria-label="JSON"></textarea>
