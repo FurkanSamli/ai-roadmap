@@ -1,5 +1,7 @@
 # AI Roadmap
 
+![AI Roadmap: the home roadmap with the Foundations section](docs/screenshot.webp)
+
 An interactive 2D roadmap of artificial intelligence: 18 fields and 573 topics, from the math
 underneath to shipping models in production. Inspired by the roadmap.sh style.
 
