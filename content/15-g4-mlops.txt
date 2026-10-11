@@ -1,0 +1,131 @@
+## g4 | mlops | MLOps & Deployment | MLOps & Deployment
+> Getting a model out of the notebook and reliably to real users.
+? There's a huge gap between a model that works in a notebook and a service millions use. MLOps is the tools and habits that close it: Docker, APIs, monitoring, automation.
+- [1] The ML lifecycle
+  > Problem → data → training → evaluation → deployment → monitoring → retraining
+  ? A model's life doesn't end at training; it goes live, gets watched, ages and gets retrained. The loop never stops.
+- [1] Experiment tracking
+  > MLflow, Weights & Biases, TensorBoard
+  ? Automatically recording which settings gave which results; the answer to “which model was best?” after a hundred runs.
+- [2] Versioning
+  ? Keeping every version of code, data and model so you can reproduce any result.
+  - [1] Code
+    > Git
+    ? Your code's full history lives in Git.
+  - [2] Data
+    > DVC, LakeFS
+    ? Git isn't built for big data files; these tools version data too.
+  - [2] Model registry
+    > MLflow Registry, Hugging Face Hub
+    ? A catalog of trained models: which is in testing, which is live, which is retired.
+- [1] Containerization
+  > The fix for “it worked on my machine”
+  ? Packing your app, Python version and all libraries into one “box” that runs the same on every computer.
+  - [1] Docker basics
+    > Image, container, volume, registry
+    ? An image is a recipe, a container the dish cooked from it; you can run as many containers from one image as you like.
+  - [1] Writing Dockerfiles
+    > Layers, caching, multi-stage builds, small images
+    ? The file where you write step by step how to build the image; written well, the image stays small and builds fast.
+  - [2] Docker Compose
+    > API + database + model together
+    ? Starting several containers together with one command.
+  - [2] GPU containers
+    > NVIDIA Container Toolkit, CUDA images
+    ? Reaching the GPU from inside a container; essential for training and fast inference.
+  - [2] Image registries
+    > Docker Hub, GitHub Container Registry, AWS ECR
+    ? Stores where you keep images and ship them to servers.
+- [3] Orchestration
+  ? Managing hundreds of containers across many servers: restarting crashed ones, adding more when load grows.
+  - [3] Kubernetes basics
+    > Pod, Deployment, Service, Ingress
+    ? The system that runs containers across many servers automatically; the standard at large companies.
+  - [3] Helm
+    ? A templating system for packaging Kubernetes apps and installing them with one command.
+  - [3] Autoscaling & load balancing
+    ? Running more copies when traffic grows and spreading requests evenly across them.
+  - [3] ML on Kubernetes
+    > Kubeflow, KServe, Ray
+    ? ML-specific tools for running training and serving on Kubernetes.
+- [2] Model serving
+  ? Turning a trained model into a service other programs and users can call.
+  - [1] Serving a model as an API
+    > FastAPI, Flask; REST and gRPC
+    ? Putting your model behind a web address: someone sends data, the model sends back a prediction. A first deployment is usually FastAPI + Docker.
+  - [1] Quick demo interfaces
+    > Gradio, Streamlit
+    ? Building a clickable web interface for your model in a few lines of Python; great for portfolio projects.
+  - [2] LLM serving
+    > vLLM, TGI, SGLang, Ollama
+    ? Running large language models so they answer many users quickly at the same time.
+  - [2] Inference modes
+    > Batch, real-time, streaming
+    ? Millions of predictions at once overnight (batch), or one instant prediction while the user waits (real-time)?
+  - [3] Serving frameworks
+    > TorchServe, TF Serving, Triton Inference Server, BentoML
+    ? Professional servers for serving many models efficiently under heavy traffic.
+- [3] Model optimization & compression
+  ? Making models smaller, faster and cheaper to run.
+  - [2] Quantization
+    > FP16, INT8, INT4; GPTQ, AWQ; the GGUF format
+    ? Storing weights with fewer bits; squeezing an LLM to 4 bits can make it run on a laptop.
+  - [3] Pruning
+    ? Removing the least useful connections to slim the model down.
+  - [3] Distillation
+    ? Transferring a big model's knowledge into a small one.
+  - [3] Formats & compilers
+    > ONNX, TensorRT, OpenVINO, torch.compile
+    ? Converting and compiling a model to run as fast as possible on specific hardware.
+- [2] CI/CD
+  ? Running tests, builds and deployment automatically every time code changes.
+  - [2] GitHub Actions, GitLab CI
+    ? Workflows that run on every push: run tests, build the Docker image, ship it to the server.
+  - [2] Model validation & release
+    ? Is the new model really better than the old one? Check automatically and only then ship it.
+  - [3] Continuous training (CT)
+    ? Retraining the model automatically as new data arrives.
+  - [3] Deployment strategies
+    > Canary, blue-green, shadow, A/B
+    ? Releasing a new model to a small share of users first and widening it if all is well.
+- [2] Monitoring & observability
+  ? Constantly checking that the live model still works correctly.
+  - [2] Data & concept drift
+    ? The world changes: the model learned from last year's data but customers now behave differently, and performance quietly drops.
+  - [2] Performance & latency tracking
+    ? How fast the model responds, how often it errors, how much memory it uses.
+  - [2] Logging & alerting
+    ? Recording what happens and alerting you automatically when something goes wrong.
+  - [3] Prometheus, Grafana, Evidently
+    ? Tools to collect metrics, show them on dashboards and produce ML-specific drift reports.
+- [3] Pipeline orchestration
+  > Airflow, Prefect, Dagster, Kubeflow Pipelines
+  ? Running “fetch data, clean, train, evaluate, publish” automatically, in order and on a schedule.
+- [3] Feature store
+  > Feast
+  ? A central store guaranteeing features are computed the same way in training and in production.
+- [2] LLMOps
+  ? The LLM-app flavor of MLOps.
+  - [2] Prompt versioning
+    ? Prompts are like code; you need to store and compare their changes.
+  - [2] Evaluation pipelines
+    ? Automatically measuring quality on a test set whenever a prompt or model changes.
+  - [2] LLM observability
+    > LangSmith, Langfuse
+    ? Logging every request, answer, cost and delay to track down problems.
+  - [2] Guardrails
+    ? Checking inputs and outputs to block harmful, wrong or off-topic answers.
+  - [2] Cost & latency optimization
+    > Caching, choosing smaller models
+    ? Every token costs money: answer repeated questions from a cache and pick the smallest model that does the job.
+- [3] Edge AI
+  ? Running models directly on the device instead of the cloud: phones, cars, cameras.
+  - [3] Mobile
+    > LiteRT (formerly TensorFlow Lite), Core ML, ONNX Runtime Mobile
+    ? Models that run on the phone without internet, for privacy and speed.
+  - [3] Embedded systems
+    > NVIDIA Jetson, microcontrollers (TinyML)
+    ? AI running on little power inside robots, vehicles and tiny sensors.
+  - [3] AI in the browser
+    > WebGPU, Transformers.js
+    ? Running a model directly in the web browser with no server.

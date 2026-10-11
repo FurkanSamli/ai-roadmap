@@ -1,0 +1,54 @@
+## g5 | ethics | Ethics, Safety & Law | Ethics & Safety
+> Not just what we can do, but what we should.
+? Using a powerful tool well: is it fair, safe, legal, whose data trained it? If you'll work in Europe, these are part of daily work.
+- [1] Bias & fairness
+  > Biases from data, fairness metrics
+  ? A model trained on a company's past hiring of mostly men may unfairly reject women; a model mirrors its data.
+- [1] Societal impact
+  > Jobs, deepfakes, disinformation, energy use
+  ? Debates on how AI affects jobs, trust in information and the environment.
+- [2] Transparency & documentation
+  > Model cards, datasheets for datasets
+  ? Writing down clearly what a model was trained on and where it works well or badly.
+- [2] Privacy
+  ? Building AI while protecting personal data.
+  - [1] Personal data protection & anonymization
+    ? Removing or masking names, addresses and other identifying details from data.
+  - [3] Differential privacy
+    ? Adding controlled noise so that no individual's data can be inferred from the result, with a mathematical guarantee.
+  - [3] Federated learning
+    ? Data stays on the device; only model updates are shared.
+- [2] Model security
+  ? Attacks on AI systems and how to defend against them.
+  - [2] Adversarial attacks
+    ? Fooling a model with changes people barely notice, like a few stickers making a stop sign look like a speed limit sign.
+  - [2] Prompt injection & jailbreaks
+    ? Trying to make an LLM break its rules with instructions hidden in a web page or document; the hottest security issue for LLM apps.
+  - [3] Data poisoning & backdoors
+    ? Slipping malicious examples into training data to teach the model a hidden behavior.
+  - [3] Model stealing & membership inference
+    ? Trying to copy a model just by querying it, or to tell whether a specific person's data was used in training.
+- [3] AI safety
+  ? Keeping increasingly capable AI systems doing what people intend, and under control.
+  - [3] Alignment
+    ? Getting the model to do what people actually mean, not just what they literally said.
+  - [3] Mechanistic interpretability
+    ? Opening up a neural network and reverse-engineering which neurons represent which concepts.
+  - [3] Red teaming & capability evaluations
+    ? Deliberately trying to misuse a model before release to find its weak spots.
+  - [3] Scalable oversight
+    ? Research on how to supervise an AI on tasks where it's better than the humans checking it.
+- [2] Law & regulation
+  ? The laws and rules governing AI; directly relevant if you work in Germany.
+  - [2] EU AI Act
+    > Risk-based regulation
+    ? The EU law classifying AI systems by risk: some uses are banned, high-risk ones face strict rules.
+  - [2] GDPR & KVKK
+    ? Europe's (GDPR) and Turkey's (KVKK) personal data protection laws; every data project must comply.
+  - [2] Copyright & data licenses
+    ? Which data can you train on, and who owns what the model produces? Still debated questions.
+  - [2] Open model licenses
+    > Apache 2.0, MIT, model-specific licenses
+    ? Whether you can use an “open” model in a commercial product depends on its license.
+- [2] Responsible AI & governance
+  ? How companies oversee AI, who is accountable and which processes they follow.

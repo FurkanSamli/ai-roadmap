@@ -1,0 +1,77 @@
+## g1 | data | Data | Data
+> A model is never better than its data: “garbage in, garbage out”.
+? In real projects most time goes not into writing models but into finding, cleaning and preparing data.
+- [1] Types of data
+  > Tabular, text, image, audio, time series, graph
+  ? A spreadsheet is structured data; photos, audio and free text are unstructured. Each kind has its own tools.
+- [1] Data collection
+  ? Finding or creating the data that will feed the model.
+  - [1] Public datasets
+    > Kaggle, Hugging Face Datasets, UCI
+    ? Datasets others collected and shared; the first stop for learning and benchmarking.
+  - [2] APIs & web scraping
+    > requests, BeautifulSoup, Scrapy
+    ? Pulling data from websites or services with code; you must respect terms of use and the law.
+  - [2] Data labeling
+    > Label Studio, CVAT; inter-annotator agreement
+    ? People writing the right answer on data: “this image has a cat”. The fuel of supervised learning, and its most expensive part.
+- [1] Exploratory Data Analysis (EDA)
+  > Seeing distributions, correlations and anomalies
+  ? Getting to know the data before modeling: draw charts, spot weird values, ask questions.
+- [1] Data cleaning
+  ? Fixing wrong, missing and inconsistent data; boring, but the step that affects results most.
+  - [1] Missing values
+    > Dropping or imputing
+    ? Deciding what to do with empty cells: drop the row, fill with the mean, or predict the value.
+  - [1] Outliers
+    ? Values far from the rest, like a 250-year-old customer. You must decide whether it's an error or real.
+  - [1] Duplicates & errors
+    ? The same record twice, misspelled categories, mixed-up units.
+- [2] Feature engineering
+  ? Turning raw data into numbers the model can understand and use; on tabular data often more important than the model.
+  - [1] Categorical encoding
+    > One-hot, label, target encoding
+    ? Turning words like “Ingolstadt, Munich, Berlin” into numbers a model understands.
+  - [1] Scaling
+    > Min-max normalization, z-score standardization
+    ? Bringing salary (thousands) and age (tens) to the same scale so big numbers don't dominate.
+  - [2] Feature selection
+    > Filter, wrapper, embedded methods
+    ? Picking the columns that actually help out of hundreds; the model gets faster and memorizes less.
+  - [2] Feature creation
+    > Date, text and interaction features
+    ? Extracting new clues from existing data: “is it a weekend?” from a date, “price per square meter” from two columns.
+- [1] Data splitting
+  ? Splitting data so the model can be tested on data it has never seen.
+  - [1] Train, validation, test
+    ? Learn on train, tune on validation, get the final grade on test. Tuning on the test set is like cheating.
+  - [2] Data leakage
+    > Test information leaking into training; the sneakiest bug
+    ? If the model sees the answer key before the exam, it scores great but collapses in the real world; very hard to notice.
+  - [2] Splitting time series
+    ? A model that predicts the future must be trained on the past and tested on the future; shuffling would be cheating.
+- [2] Imbalanced data
+  > Oversampling, undersampling, SMOTE, class weights
+  ? If only 1 in 1000 transactions is fraud, a model saying “all clean” scores 99.9% and is useless. Ways to fix that.
+- [2] Data augmentation
+  > Rotating, cropping, adding noise, paraphrasing text
+  ? Multiplying your data with small changes: flipping and cropping the same cat photo to make new examples.
+- [3] Synthetic data
+  > Generating data with simulation or generative models
+  ? When real data is scarce or private, generating realistic data by computer; simulation is common in self-driving.
+- [3] Data engineering
+  ? Building the pipelines that move data from sources, clean it and feed models regularly.
+  - [2] ETL / ELT pipelines
+    ? Extract, transform, load. The data jobs that run every night look like this.
+  - [2] Data formats
+    > CSV, JSON, Parquet, Arrow
+    ? How data is stored on disk. Parquet is much faster and smaller than CSV for big tables.
+  - [3] Big data tools
+    > Apache Spark, Kafka
+    ? Processing data too big for one computer across many machines (Spark) and moving streaming data (Kafka).
+  - [3] Data warehouse & data lake
+    > BigQuery, Snowflake, lakehouse
+    ? Big stores where all of a company's data is collected; the tidy kind is a warehouse, the raw kind a lake.
+- [3] Data quality & governance
+  > Validation, lineage, documentation
+  ? Tracking where data came from, who changed it and whether it's correct.

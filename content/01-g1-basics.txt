@@ -1,0 +1,70 @@
+## g1 | basics | Core Concepts & History | Concepts & History
+> What AI is, where it came from; the big picture of the field.
+? The entry gate of the map: what the word “AI” means and how we got here.
+- [1] What is AI?
+  > Systems that do tasks needing human intelligence: perceiving, reasoning, learning, deciding
+  ? If a computer does something that normally needs a human brain, like recognizing faces, playing chess or writing text, we call it AI.
+- [1] Types of AI
+  ? Classifying AI by how “general” it is.
+  - [1] Narrow AI (ANI)
+    > Systems good at one task; almost all AI in use today
+    ? AI that is good at one thing. A chess engine plays brilliant chess but can't give you a recipe.
+  - [1] Artificial General Intelligence (AGI)
+    > A system that learns and acts in any domain like a human; its definition and timing are still debated
+    ? An AI that can learn and think about anything, like a person. When it will arrive, and even what exactly it means, is debated.
+  - [2] Superintelligence (ASI)
+    > Hypothetical intelligence surpassing humans in every domain
+    ? A hypothetical AI smarter than the best humans at everything. For now, a thought experiment.
+- [1] Approaches
+  ? There are two big ways to build AI: write the rules by hand, or let the machine learn them from data.
+  - [1] Symbolic AI
+    > Knowledge hand-coded as rules and logic
+    ? AI where people write rules like “if fever and cough, maybe flu”.
+  - [1] Connectionism
+    > Neural networks; knowledge learned from data
+    ? AI inspired by brain neurons that works out the rules from examples. Today's deep learning comes from here.
+  - [3] Neuro-symbolic AI
+    > Efforts to combine both approaches
+    ? Research that tries to combine the learning power of neural nets with the clarity of logical rules.
+- [1] History
+  ? AI's roughly 75-year story: big hype, disappointments and comebacks.
+  - 1950 · The Turing Test
+    > Alan Turing's question: “Can machines think?”
+    ? If you chat with a machine and can't tell whether it's human, should it count as intelligent? Turing proposed this test.
+  - 1956 · Dartmouth Workshop
+    > Birth of the term “Artificial Intelligence”
+    ? A group of scientists met for a summer and gave the field its name, “artificial intelligence”.
+  - 1958 · The Perceptron
+    > The first learning artificial neuron (Rosenblatt)
+    ? The first simple artificial neuron that could learn from examples; the great-grandparent of today's giant networks.
+  - AI winters
+    > Loss of funding and interest in the 1970s and late 1980s after unmet expectations
+    ? AI promised a lot; when results didn't come, money and interest dried up. The field hibernated twice.
+  - 1986 · Backpropagation
+    > Backpropagation popularized (Rumelhart, Hinton, Williams); expert systems in the same era
+    ? A practical way to train multi-layer neural networks spread. All neural networks are still trained this way.
+  - 1997 · Deep Blue
+    > Beat world chess champion Kasparov
+    ? IBM's computer beat the world chess champion. It didn't learn; it searched incredibly fast.
+  - 2012 · AlexNet
+    > A GPU-trained CNN that started the deep learning revolution
+    ? A neural net trained on graphics cards won an image recognition contest by a mile, and everyone turned to deep learning.
+  - 2016 · AlphaGo
+    > Beat Lee Sedol at Go (deep learning + reinforcement learning + MCTS)
+    ? It beat one of the world's best at Go, far more complex than chess, learning partly by playing against itself.
+  - 2017 · The Transformer
+    > The “Attention Is All You Need” paper; the basis of today's LLMs
+    ? A new architecture where every word can “look at” every other word. ChatGPT and similar models are built on it.
+  - 2022+ · ChatGPT and the LLM boom
+    > Generative AI goes mainstream
+    ? Chatting AIs became available to everyone and AI entered everyday life.
+- [2] Philosophy & cognitive science
+  ? Big questions like “what is intelligence, can a machine really understand?”
+  - [2] The Chinese Room
+    > Whether manipulating symbols amounts to “understanding”
+    ? If someone who knows no Chinese answers Chinese questions correctly with a rulebook, do they “understand” Chinese? The same question is asked of machines.
+  - [3] Debates on consciousness
+    ? Can an AI have experiences, feelings or consciousness? An open philosophical question without a settled answer.
+  - [2] Cognitive science & neuroscience
+    > The biological inspiration behind neural nets
+    ? How the brain works gives AI ideas, and AI models in turn help us study the brain.

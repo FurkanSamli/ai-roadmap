@@ -1,0 +1,110 @@
+## g1 | prog | Programming & Computer Science | Programming
+> Turning ideas into working code.
+? Understanding AI is one thing, building it another. This cluster gathers the software skills you need to actually code models.
+- [1] Python
+  > The main language of AI
+  ? The common language of AI. Easy to read with tons of libraries; almost every AI tool is used from Python.
+  - [1] Syntax, data types, control flow
+    ? The basic building blocks: variables, if, for, while.
+  - [1] Lists, dicts, sets; comprehensions
+    ? Python's built-in containers and the short way to transform them in one line.
+  - [1] Functions & OOP
+    ? Splitting code into reusable pieces. In PyTorch every model is written as a class.
+  - [1] Packages & environments
+    > pip, venv, conda, uv, poetry
+    ? Keeping each project's libraries in a separate box. Half of all “works on my machine” problems come from here.
+  - [2] Decorators, generators, context managers
+    ? Advanced but common Python features. Data loaders use generators, training loops use context managers.
+  - [2] Type hints
+    ? Declaring variable types in code; catches bugs early in big projects.
+  - [3] Async programming (asyncio)
+    > For API services and parallel LLM calls
+    ? Moving on to other work while waiting for something to finish; essential for sending hundreds of API requests at once.
+- [1] Scientific Python ecosystem
+  ? The libraries that turn Python from a calculator into a data lab.
+  - [1] NumPy
+    > Vectorized numerical computing
+    ? Fast matrix and vector math in Python. PyTorch tensors feel very much like NumPy arrays.
+  - [1] Pandas / Polars
+    > Working with tabular data
+    ? Like Excel inside Python: read, filter, group and join tables.
+  - [1] Matplotlib, Seaborn, Plotly
+    > Visualization
+    ? Turning data and training results into charts. One loss curve says more than a thousand numbers.
+  - [1] Jupyter & Google Colab
+    ? Notebooks where you run code in pieces and see results immediately. Colab even gives you a free GPU.
+  - [2] SciPy
+    > Scientific computing and statistics
+    ? Ready-made scientific tools: optimization, statistical tests, signal processing.
+- [2] Data structures & algorithms
+  ? Classic ways to organize data and solve problems efficiently; also a staple of job interviews.
+  - [1] Arrays, linked lists, stacks, queues, hash tables
+    ? The basic patterns for storing data; each is fast at different things.
+  - [2] Trees, graphs, heaps
+    ? Structures for hierarchical and connected data, used by decision trees and search algorithms.
+  - [2] Sorting, searching, dynamic programming
+    ? Solving big problems by splitting them up without recomputing; RL's Bellman equations are dynamic programming too.
+- [2] Theory of computation
+  ? Theory of what computers can compute and what is “hard”; the core of CS courses.
+  - [2] Automata & formal languages
+    > Regular expressions, context-free grammars
+    ? Simple machines that recognize text by rules; regex and language parsers come from here.
+  - [2] Complexity classes
+    > P, NP, NP-complete
+    ? Some problems are solved quickly; for others nobody knows a fast solution. Many planning and search problems fall in this “hard” group.
+  - [3] Computability
+    > Turing machines, the halting problem
+    ? Some problems no computer can ever solve; this helps frame the theoretical limits of AI too.
+- [2] Software engineering practices
+  ? Making code not just work but be readable, testable and able to grow.
+  - [1] Git & GitHub
+    > Version control, branches, pull requests
+    ? A system that keeps your code's full history and enables teamwork; a must for every AI project.
+  - [1] Linux & the command line
+    > bash, file system, processes
+    ? GPU servers are almost always Linux with no graphical interface; being comfortable in a terminal is a big advantage.
+  - [2] Testing
+    > pytest, unit and integration tests
+    ? Small programs that automatically check your code works; data preparation bugs are mostly caught here.
+  - [2] Clean code & project structure
+    > Modularity, logging, config files
+    ? Moving from a notebook to a tidy project: split files, move settings out, log what happens.
+  - [2] Code quality tools
+    > ruff, black, pre-commit
+    ? Tools that format code automatically and catch simple mistakes.
+  - [3] Design patterns
+    ? Proven solution templates for common software problems.
+- [2] Databases
+  ? Storing data in an organized, fast-to-access way. In real projects data lives in databases, not CSVs.
+  - [1] SQL
+    > Queries, JOIN, GROUP BY, indexes
+    ? The language for asking databases questions: “who were the top 10 customers last month?”. A daily tool for data scientists.
+  - [2] Relational databases
+    > PostgreSQL, MySQL, SQLite
+    ? Classic databases built from linked tables.
+  - [2] NoSQL
+    > MongoDB, Redis, Cassandra
+    ? Flexible or very fast databases without strict tables; Redis is widely used as a cache.
+  - [2] Vector databases
+    > Storing embeddings and running similarity search (see RAG)
+    ? Databases that search by meaning instead of matching words; the memory of LLM apps.
+- [3] Other languages
+  ? Python doesn't do everything alone; other languages step in for speed, interfaces or infrastructure.
+  - [2] JavaScript / TypeScript
+    > Front ends of AI apps
+    ? The web interfaces users see are written with it; this tree runs on JavaScript too.
+  - [3] C++
+    > High-performance inference, library internals
+    ? PyTorch's internals and fast inference engines are written in C++; it appears wherever speed matters.
+  - [3] CUDA
+    > GPU programming
+    ? Writing code that runs on thousands of NVIDIA GPU cores at once.
+  - [3] Rust & Go
+    > Infrastructure and fast services
+    ? Modern languages for safe, fast system software; some AI tools and tokenizers are written in Rust.
+  - [3] R & Julia
+    > Statistics and scientific computing
+    ? R is loved by statisticians, Julia by scientific computing folks.
+- [3] Parallel & distributed computing
+  > Threads, processes, GPU parallelism, deadlocks
+  ? Splitting work across many processors or machines at once; large model training depends on it.

@@ -1,0 +1,51 @@
+## g3 | apps | AI Application Domains | Applications
+> Where AI is actually used across industries.
+? Where do all these methods pay off? This cluster shows real uses by industry, and helps you think about which area you want to head into.
+- [2] Automotive & mobility
+  ? A field Ingolstadt sits right in: cars understanding their surroundings, helping drivers and one day driving themselves.
+  - [2] Driver assistance systems (ADAS)
+    ? Systems that help the driver, like lane keeping, emergency braking and adaptive cruise control.
+  - [3] Autonomous driving stack
+    > Perception, prediction, planning, control
+    ? The car understanding what it sees, predicting what others will do, planning its path and turning the wheel.
+  - [3] Safety validation & scenario testing
+    ? How do you prove an AI is safe over millions of kilometers? With simulation and standards.
+  - [2] Traffic & fleet optimization
+    ? Predicting and improving traffic flow, charging station use or delivery routes.
+- [2] Industry 4.0 & manufacturing
+  ? Machines, sensors and AI working together in factories.
+  - [2] Predictive maintenance
+    ? Predicting from sensor data when a machine will fail, before it does.
+  - [2] Visual quality inspection
+    ? Automatically catching defective parts on the production line with cameras.
+  - [3] Digital twin
+    ? Building a virtual copy of a factory or product and trying changes there first.
+- [2] Healthcare & medicine
+  ? From diagnosis to drug development, one of the fields where AI can matter most and needs the most care.
+  - [2] Medical image analysis
+    ? Detecting findings like tumors in X-rays, MRIs and pathology images.
+  - [3] Drug discovery
+    ? Quickly narrowing millions of molecules down to the promising ones.
+  - [3] Clinical decision support
+    ? Giving doctors risk alerts and suggestions based on patient data.
+- [3] AI for science
+  > Protein structure prediction (AlphaFold), materials science, climate modeling
+  ? AI speeding up scientific discovery, like predicting protein shapes or suggesting new materials.
+- [2] Finance
+  > Fraud detection, credit scoring, risk modeling
+  ? Catching suspicious transactions instantly and estimating credit risk; explainability can be a legal requirement here.
+- [2] E-commerce, media & search
+  > Recommenders, search ranking, advertising
+  ? The systems deciding what you watch, what you buy and which result you see first.
+- [2] Cybersecurity
+  > Intrusion and anomaly detection
+  ? Spotting attacks early by catching unusual behavior in network traffic and system logs.
+- [2] Software development
+  > Coding assistants, automated testing, debugging
+  ? AI tools that write, explain and debug code; something a CS student will meet every day.
+- [2] Education
+  ? Personal tutors that adapt to a student's level, and automatic feedback.
+- [3] Energy, climate & agriculture
+  ? Forecasting electricity demand, managing renewables, monitoring crop health from satellites.
+- [2] Law & public sector
+  ? Analyzing long documents, reviewing contracts and speeding up public services; bias risks are critical here.

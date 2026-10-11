@@ -1,0 +1,124 @@
+## g3 | nlp | Natural Language Processing (NLP) & Large Language Models (LLM) | NLP & LLMs
+> Understanding and generating text; currently the busiest part of the field.
+? Computers understanding and writing human language. ChatGPT, translation, summarization and chatbots all live in this cluster.
+- [1] Classical NLP
+  ? Ways of working with text before deep learning; still useful for fast, simple solutions.
+  - [1] Text preprocessing
+    > Tokenization, stop words, stemming, lemmatization
+    ? Splitting text into pieces, dropping filler words like “and, a”, reducing “running” to its root “run”.
+  - [1] Bag of Words & TF-IDF
+    ? Turning text into a list of word counts; TF-IDF gives more weight to rare but meaningful words.
+  - [1] Sentiment analysis
+    ? Working out whether a review is positive or negative.
+  - [1] Libraries
+    > NLTK, spaCy; Zemberek for Turkish
+    ? Ready-made text tools; agglutinative languages like Turkish have their own challenges.
+  - [2] N-gram language models
+    ? Predicting the next word from the last few words; a very simple ancestor of LLMs.
+  - [2] Part-of-speech tagging (POS)
+    ? Finding whether each word is a noun, verb, adjective...
+  - [2] Named entity recognition (NER)
+    ? Finding and tagging names of people, places, companies and dates: “Audi” is a company, “Ingolstadt” a city.
+  - [3] Syntactic parsing
+    ? Building a sentence's grammar tree: what's the subject, the verb, which word depends on which.
+- [2] Word embeddings
+  > Word2Vec, GloVe, FastText
+  ? Turning each word into a vector so words with similar meanings sit close together.
+- [2] Tokenizers
+  > BPE, WordPiece, SentencePiece
+  ? LLMs see “tokens”, not words. “Ingolstadt” might be split into several tokens, and pricing is by token count too.
+- [2] Transformer-based language models
+  ? The three main families of today's language models.
+  - [2] Encoder models
+    > BERT, RoBERTa, BERTurk for Turkish
+    ? Masters of understanding text: classification, search, entity recognition. They don't generate text.
+  - [2] Decoder models
+    > The GPT family, Llama, Claude, Gemini
+    ? Models that generate text word by word; every chatbot belongs to this family.
+  - [2] Encoder-decoder models
+    > T5, BART
+    ? Models that first read and understand, then write; a natural fit for translation and summarization.
+- [3] LLM training lifecycle
+  ? The stages that turn raw text into a helpful assistant.
+  - [2] Parameter-efficient fine-tuning (PEFT)
+    > LoRA, QLoRA, adapters
+    ? Adapting a huge model by training only small add-on pieces instead of the whole thing; possible even on a single GPU.
+  - [3] Pretraining
+    > Next-token prediction on enormous text
+    ? Reading a large part of the internet and playing “what's the next word?” trillions of times; language and world knowledge come from here.
+  - [3] Instruction tuning (SFT)
+    ? Teaching the pretrained model to “behave like an assistant” with question-answer examples.
+  - [3] Alignment
+    > RLHF, DPO, Constitutional AI
+    ? Steering the model by which answers people prefer, so it's more helpful, honest and harmless.
+  - [3] Reasoning models
+    > Chain-of-thought training, test-time compute
+    ? Models that “think” step by step before answering; much better at hard math and coding questions.
+- [1] Prompt engineering
+  ? The craft of telling an LLM clearly what you want; the same model does far better with a good prompt.
+  - [1] Zero-shot & few-shot
+    ? Asking with no examples, or showing a few examples to say “do it like this”.
+  - [1] System prompts, roles & format
+    ? Telling the model up front who it is, how to behave and what format to answer in.
+  - [1] Chain-of-thought
+    ? Saying “think step by step”; it noticeably improves accuracy on hard questions.
+  - [2] Structured output
+    > JSON schema
+    ? Asking the model for tidy data a program can read (e.g. JSON) instead of free text.
+- [2] Inference
+  ? How a trained LLM produces answers, and how to make that fast.
+  - [1] Context window
+    ? How much text the model can “see” at once; when it fills up, early information falls out.
+  - [2] Decoding
+    > Greedy, beam search, top-k, top-p, temperature
+    ? At each step the model gives probabilities to possible words; these settings decide which gets picked. Higher temperature means more creative, more random answers.
+  - [3] KV cache
+    ? Storing the computations for earlier words so they aren't redone; speeds up generation a lot but eats memory.
+  - [3] Speculative decoding
+    ? A small fast model guesses a few words and the big model checks them in one go; faster without losing quality.
+- [2] RAG (Retrieval-Augmented Generation)
+  > Connecting the model to an outside knowledge source
+  ? Finding relevant documents and putting them in front of the model before it answers, so it can use things it never learned, like company docs or lecture notes.
+  - [2] Chunking
+    ? Splitting long documents into small pieces the model can handle; chunk size affects results a lot.
+  - [2] Embedding models
+    ? Models that turn text chunks into meaning vectors; the heart of retrieval.
+  - [2] Vector databases
+    > FAISS, Chroma, Qdrant, Weaviate, Pinecone, pgvector
+    ? Stores that find the most similar vectors among millions in milliseconds.
+  - [3] Reranking & hybrid search
+    > BM25 + vector search
+    ? Combining keyword matching with meaning-based search, then reordering results with a smarter model.
+  - [3] GraphRAG
+    ? Building a knowledge graph from documents and searching over it; strong at connecting scattered facts.
+- [2] LLM agents
+  ? LLM systems that don't just answer but use tools and do work step by step.
+  - [2] Tool use / function calling
+    ? The model being able to call a calculator, a search engine or your own code.
+  - [2] ReAct & planning
+    ? The loop “think, act, look at the result, think again”; how multi-step tasks get solved.
+  - [2] Model Context Protocol (MCP)
+    > A standard for connecting models to tools and data sources
+    ? A common “plug” standard for connecting AI models to tools like calendars, files or databases.
+  - [3] Memory management
+    ? Deciding what an agent keeps and what it summarizes or forgets during long tasks.
+  - [3] Multi-agent systems
+    ? Several LLMs with different roles working together: one plans, one writes, one checks.
+- [2] Evaluation
+  ? Measuring whether a language model is actually good; surprisingly hard.
+  - [2] Classic metrics
+    > BLEU, ROUGE, BERTScore
+    ? Scoring generated text by word or meaning overlap with a reference text.
+  - [2] Benchmarks
+    > MMLU, HumanEval, GSM8K, SWE-bench
+    ? Standard exams models take: general knowledge, coding, math, real software bugs.
+  - [2] LLM-as-a-judge
+    ? One model grading another model's answers; fast but with its own biases.
+  - [3] Hallucination detection
+    ? Catching information the model confidently makes up.
+- [1] Application tasks
+  > Translation, summarization, question answering, chatbots, code generation, information extraction
+  ? NLP in daily life: translating with DeepL, summarizing a long PDF, coding assistants.
+- [1] Tools
+  > Hugging Face, LangChain, LlamaIndex, Ollama, llama.cpp, vLLM
+  ? Tools for building LLM apps and running models on your own computer.

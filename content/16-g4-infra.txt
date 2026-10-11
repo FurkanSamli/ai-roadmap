@@ -1,0 +1,49 @@
+## g4 | infra | Infrastructure, Cloud & Hardware | Infrastructure & Cloud
+> The ground models run on.
+? AI isn't only software; no model trains or runs without GPUs, servers, networks and cloud services.
+- [2] Hardware
+  ? The chips that do AI math, and their limits.
+  - [1] CPU, GPU, TPU, NPU
+    > Why AI runs on GPUs: parallel matrix multiplication
+    ? A CPU is a few smart workers, a GPU thousands of simple ones. Matrix math splits into thousands of small jobs, so GPUs are far faster.
+  - [2] Memory math
+    > How many GB of VRAM a model needs
+    ? A 7-billion-parameter model takes about 14 GB in 16-bit. This simple math decides which GPU you need.
+  - [3] GPU architecture
+    > CUDA cores, Tensor Cores, VRAM, memory bandwidth
+    ? What's inside a GPU, and why memory is often the bottleneck before compute.
+  - [3] CUDA, cuDNN, NCCL
+    ? The software layers for computing on NVIDIA GPUs, speeding up neural net operations and talking between GPUs.
+- [2] Cloud platforms
+  ? Renting GPUs by the hour and ready-made AI services without owning servers.
+  - [1] Colab, Kaggle & GPU rental
+    ? The easiest start for students: free or cheap GPUs right in the browser.
+  - [2] AWS
+    > EC2, S3, SageMaker, Bedrock
+    ? Amazon's cloud: virtual servers, file storage and ML services.
+  - [2] Google Cloud
+    > Vertex AI, TPU, Cloud Storage
+    ? Google's cloud, with access to its own TPU chips.
+  - [2] Microsoft Azure
+    > Azure Machine Learning
+    ? Microsoft's cloud, very common in enterprises.
+  - [3] Serverless inference
+    ? Running models without managing servers, paying only per request.
+- [2] Networking basics
+  > HTTP, REST, gRPC, WebSocket, DNS
+  ? How a request travels from a browser to your model and back; essential when writing and debugging APIs.
+- [2] Linux administration
+  > SSH, processes, permissions, systemd, nvidia-smi
+  ? Connecting to a remote GPU server, running your jobs, watching GPU use and fixing problems.
+- [2] Security
+  > Secret management, authentication, network isolation
+  ? Not hard-coding API keys, and making sure only authorized people reach your services.
+- [3] Infrastructure as Code (IaC)
+  > Terraform
+  ? Setting up servers by describing them in code instead of clicking, so everything is reproducible.
+- [3] Distributed systems
+  > Scalability, consistency, message queues (Kafka, RabbitMQ)
+  ? Many machines acting like one system and staying up even when a part fails.
+- [3] Cost management
+  > Spot instances, choosing the right hardware
+  ? GPU hours are expensive; cheap interruptible servers and right-sizing cut the bill a lot.

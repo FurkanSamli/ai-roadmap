@@ -1,0 +1,58 @@
+## g2 | classic | Classical (Symbolic) AI | Classical AI
+> AI before learning: search, logic, planning. Usually the first half of AI textbooks.
+? Before machine learning took off, AI meant searching cleverly and reasoning with logic. These ideas still live in navigation, games and planning.
+- [1] Intelligent agents
+  > Systems that perceive and act; types of environments
+  ? Anything that senses its surroundings, decides and acts is an agent: a robot vacuum or a chess program.
+- [1] Search algorithms
+  ? Finding a path from start to goal by systematically trying possible steps, like a maps app finding a route.
+  - [1] Uninformed search
+    > BFS, DFS, uniform cost search
+    ? Searching with no hint about where the goal is: check nearby first (BFS) or follow one path to the end (DFS).
+  - [1] Heuristic search & A*
+    > Greedy best-first, A*
+    ? Prioritizing the right direction with a guess like “how far is the goal as the crow flies?”; common in games and maps.
+  - [2] Local search
+    > Hill climbing, simulated annealing
+    ? Start from a solution and look for better ones with small changes; sometimes a bad step saves you from getting stuck.
+  - [2] Game trees: minimax & alpha-beta
+    ? Choosing moves assuming the opponent also plays their best; the classic method of chess and checkers programs.
+  - [3] Monte Carlo Tree Search (MCTS)
+    > One of AlphaGo's ingredients
+    ? Trying each move with thousands of random playouts and picking the one that wins most.
+- [2] Constraint satisfaction problems (CSP)
+  > Sudoku, timetabling, scheduling
+  ? Finding a solution that obeys all rules at once, like a timetable where no lecturer has two classes at the same time.
+- [2] Knowledge representation & reasoning
+  ? Writing knowledge in a form a computer can reason with, and deriving new conclusions from it.
+  - [1] Expert systems & rule-based systems
+    ? Turning an expert's knowledge into hundreds of “if... then...” rules; widely used in medicine and industry in the 80s.
+  - [2] Propositional & first-order logic
+    ? Turning sentences into formulas with true/false values: “All humans are mortal, Socrates is human, so...”.
+  - [2] Inference methods
+    > Forward and backward chaining, resolution
+    ? Automatic ways of deriving new facts from known facts using rules.
+  - [2] Ontologies & knowledge graphs
+    ? Storing concepts and their relations as a network: “Ingolstadt is in Bavaria, Bavaria is in Germany”. Search engines use them.
+- [3] Automated planning
+  > STRIPS, PDDL
+  ? Automatically working out which actions to take, in which order, to reach a goal; for robots and logistics.
+- [2] Probabilistic reasoning
+  ? When the world is uncertain, logic isn't enough; you reason with probabilities.
+  - [2] Bayesian networks
+    ? Showing how events influence each other with an arrow diagram and computing probabilities: rain, sprinkler, wet grass.
+  - [2] Hidden Markov Models (HMM)
+    ? Guessing a hidden state from observed clues; speech recognition used to be done this way.
+  - [2] Markov Decision Processes (MDP)
+    > The mathematical framework of reinforcement learning
+    ? The standard way to describe decision problems with states, actions and rewards.
+- [2] Evolutionary & nature-inspired algorithms
+  ? Searching for solutions by imitating natural selection or ant colonies.
+  - [2] Genetic algorithms
+    ? Create a “population” of solutions, breed the good ones, add some mutation, repeat for generations.
+  - [3] Particle swarm & ant colony
+    ? Optimization methods inspired by bird flocks and ants finding food.
+- [2] Fuzzy logic
+  ? Reasoning not just with true/false but with in-between values like “a bit warm”; used in washing machines and controllers.
+- [3] Multi-agent systems & game theory
+  ? Situations where several agents cooperate or compete, like auctions or traffic.

@@ -1,0 +1,11 @@
+{
+  "name": "ai-roadmap",
+  "version": "0.1.0",
+  "private": true,
+  "description": "An interactive 2D AI learning roadmap: 18 fields, 573 topics, progress tracking, notes and free learning resources.",
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes serve -l 5174 .",
+    "check": "node scripts/check-content.mjs"
+  }
+}

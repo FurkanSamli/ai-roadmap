@@ -1,0 +1,63 @@
+## g3 | rl | Reinforcement Learning | Reinforcement Learning
+> Agents that learn by trial, error and reward.
+? Like teaching a dog tricks: reward the right behavior, not the wrong one. The agent tries thousands of times and finds the strategy that earns the most reward.
+- [1] Core concepts
+  ? The basic vocabulary of RL.
+  - [1] Agent, environment, state, action, reward
+    ? A player (agent) in a game (environment) looks at the screen (state), presses a button (action), gets points (reward).
+  - [1] Exploration vs exploitation
+    ? Go to the good restaurant you know, or try a new one that might be better?
+  - [2] Markov Decision Process (MDP)
+    ? The mathematical frame for RL problems: states, actions, transition probabilities and rewards.
+  - [2] Policy & value functions
+    > V(s), Q(s, a)
+    ? A policy answers “what do I do here?”, a value function answers “how good is this situation?”.
+  - [2] Bellman equations
+    ? A state's value = the reward now + the value of the next state; most RL algorithms rest on this simple idea.
+  - [2] Discount factor & return
+    ? A reward now is worth more than one tomorrow; this setting decides how far ahead the agent thinks.
+- [2] Multi-armed bandits
+  > ε-greedy, UCB, Thompson sampling
+  ? Finding which of many slot machines pays best while losing as little as possible; used in ads and A/B testing.
+- [2] Dynamic programming
+  > Value iteration, policy iteration
+  ? Computing the best strategy directly when you fully know the environment's rules.
+- [2] Model-free methods
+  ? Learning without knowing the environment's rules, just by trying.
+  - [2] Monte Carlo methods
+    ? Playing a whole episode, then judging all the moves by how it ended.
+  - [2] Temporal difference learning (TD)
+    ? Updating your estimate at every step based on the next estimate, without waiting for the end.
+  - [2] Q-learning & SARSA
+    ? Filling in a table of how good each action is in each state by trying things out.
+- [3] Deep reinforcement learning
+  ? Combining RL with neural networks to solve complex problems from Atari to robots.
+  - [3] Deep Q-Network (DQN)
+    ? Using a neural network instead of a Q-table; the first big success at learning Atari games from the screen.
+  - [3] Policy gradient & REINFORCE
+    ? Making good behaviors directly more likely, without keeping a value table.
+  - [3] Actor-Critic
+    > A2C, A3C
+    ? One network decides (actor), another judges how good that decision was (critic).
+  - [3] PPO
+    > One of the most widely used; also used in RLHF
+    ? A stable, popular method that updates the policy without changing it “too much” at each step.
+  - [3] SAC, DDPG, TD3
+    > For continuous action spaces
+    ? Algorithms for agents choosing continuous values, like a steering angle or robot arm torque.
+- [3] Model-based RL
+  > AlphaZero, MuZero, world models
+  ? The agent learns how the environment works and plans by “simulating” it in its head.
+- [3] Imitation learning & inverse RL
+  ? Learning by watching an expert instead of defining rewards, like learning to drive from a good driver's recordings.
+- [3] Multi-agent RL
+  ? Several learning agents that compete or cooperate.
+- [3] RL from human feedback (RLHF)
+  > Used to align LLMs
+  ? The reward comes from people's preferences, not a formula; that's where models like ChatGPT get “polite and helpful”.
+- [2] Tools
+  > Gymnasium, Stable-Baselines3, PettingZoo
+  ? Ready-made game and simulation environments, plus ready-made RL algorithms.
+- [1] Applications
+  > Games, robotics, self-driving, recommenders, resource optimization
+  ? Anywhere you need a sequence of decisions, from chess to cooling data centers.

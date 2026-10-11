@@ -1,0 +1,70 @@
+## g3 | cv | Computer Vision | Computer Vision
+> Machines understanding images and video.
+? Turning camera pixels into meaning like “that's a pedestrian, that's a traffic light”. Self-driving cars, medical imaging and quality control are built on it.
+- [1] Image processing basics
+  ? How images are stored in a computer and processed with classic methods.
+  - [1] Pixels, channels, color spaces
+    > RGB, HSV, grayscale
+    ? An image is a table of red, green and blue numbers.
+  - [1] Filters & convolution
+    ? Sliding a small window over an image to blur or sharpen it; the classic ancestor of CNNs.
+  - [1] Libraries
+    > OpenCV, Pillow
+    ? Standard tools for reading, cropping, rotating images and classic vision operations.
+  - [2] Edge & corner detection
+    > Sobel, Canny, Harris
+    ? Finding where brightness changes suddenly, which is usually where object borders are.
+  - [2] Thresholding & morphology
+    ? Turning an image black-and-white and cleaning up small specks; used in document scanning and industrial inspection.
+  - [3] Classic features
+    > SIFT, HOG
+    ? Hand-designed pattern descriptors used to describe images before deep learning.
+- [1] Image classification
+  > “What's in this image?”
+  ? Giving the whole image one label: cat, dog, car.
+- [2] Object detection
+  > “What is where?”
+  ? Drawing a box around every object in an image and naming it; a core task in self-driving.
+  - [2] One-stage detectors
+    > The YOLO family, SSD
+    ? Fast models that find all objects in a single look; for real-time applications.
+  - [3] Two-stage detectors
+    > R-CNN, Fast R-CNN, Faster R-CNN
+    ? Slower but precise models that first propose “something might be here” regions, then classify each.
+  - [3] Transformer-based detection
+    > DETR
+    ? Doing object detection directly as set prediction with a transformer.
+- [2] Segmentation
+  > Pixel-level understanding
+  ? Instead of boxes, deciding what every pixel belongs to: road, sidewalk, pedestrian, sky.
+  - [2] Semantic, instance & panoptic segmentation
+    ? Semantic: “these are car pixels”. Instance: “this is car 1, that is car 2”. Panoptic: both at once.
+  - [2] U-Net & Mask R-CNN
+    ? Classic segmentation architectures; U-Net is especially common in medical imaging.
+  - [3] Segment Anything (SAM)
+    ? A general model that can cut out any object from an image with a single click.
+- [2] Vision Transformer (ViT)
+  ? Cutting an image into small squares and feeding each to a transformer like a word; competes with CNNs on big data.
+- [2] Face detection & recognition
+  ? Finding faces and recognizing whose they are, from phone unlocking to security systems; privacy debates start here too.
+- [2] OCR & document understanding
+  ? Reading text in images and pulling information out of documents like invoices and forms.
+- [3] Pose estimation & tracking
+  ? Locating a person's skeleton joints and following objects through a video.
+- [3] Video understanding
+  > Action recognition, temporal modeling
+  ? Understanding not just frames but what happens over time: “someone fell”, “the car changed lanes”.
+- [3] 3D vision
+  ? Understanding the 3-D world from 2-D images and sensors.
+  - [3] Depth estimation & stereo vision
+    ? Estimating how far away things are from one or two cameras.
+  - [3] Point clouds
+    ? Working with millions of 3-D points from sensors like LiDAR; very important for self-driving cars.
+  - [3] NeRF & Gaussian Splatting
+    ? Building a realistic 3-D scene you can walk around from a handful of photos.
+- [3] Vision-language models (VLM)
+  > CLIP; multimodal LLMs that understand images
+  ? Models that can look at an image and talk about it: “what do you see in this chart?”
+- [2] Libraries
+  > torchvision, Ultralytics, Detectron2, timm
+  ? Ready-made vision models and training tools; with Ultralytics you can train YOLO in a few lines.

@@ -1,0 +1,198 @@
+## g1 | math | Mathematical Foundations | Mathematics
+> The language of AI. You need some of it to use models and all of it to understand and build them.
+? Models are really big mathematical formulas. Here you see which math topics matter and where.
+- [1] Linear Algebra
+  > The language of data and models; everything is vectors and matrices
+  ? An image, a sentence or a user is stored as lists of numbers (vectors). Linear algebra is the rulebook for computing with those lists.
+  - [1] Scalars, vectors, matrices, tensors
+    ? One number is a scalar, a list a vector, a table a matrix, and a box with more dimensions a tensor. A color photo is a 3-D tensor.
+  - [1] Matrix operations
+    > Addition, multiplication, transpose, identity and inverse
+    ? A neural network layer is basically “multiply the input by a matrix”, which makes matrix multiplication the most common calculation in AI.
+  - [1] Dot product & norms
+    > Measuring similarity and length; L1 and L2 norms, cosine similarity
+    ? Measures how much two vectors point the same way. Search engines and recommenders answer “how similar are these?” like this.
+  - [1] Linear transformations
+    > Rotation, scaling, projection; a layer = linear map + activation
+    ? A matrix is like a machine that rotates, stretches or squashes space. Neural nets transform data layer by layer this way.
+  - [1] Broadcasting & tensor operations
+    > Shapes, reshaping, reducing along axes; daily work in NumPy and PyTorch
+    ? Rules for combining arrays of different sizes without loops. Most bugs in practice are “shape mismatch” errors.
+  - [2] Vector spaces & basis
+    > Linear independence, span, dimension, subspaces
+    ? Describes how many “independent directions” you need to describe a space; the basis for understanding how much real information data has.
+  - [2] Rank, determinant, trace
+    ? Rank tells how much independent information a matrix carries; the determinant tells how much it scales space.
+  - [2] Orthogonality & projection
+    > Gram-Schmidt, orthonormal bases
+    ? Perpendicular directions carry independent information. A projection is a vector's “shadow” in another direction.
+  - [2] Least squares & pseudo-inverse
+    > Normal equations, Moore-Penrose pseudo-inverse
+    ? The matrix way of finding the line that “best fits” some points. Linear regression is exactly this.
+  - [2] Eigenvalues & eigenvectors
+    > The basis of PCA, Markov chains and stability analysis
+    ? Special vectors whose direction doesn't change when a matrix is applied, they just stretch or shrink. They reveal the “main axes” of data.
+  - [2] Positive definite matrices
+    > Covariance matrices, convexity checks
+    ? Matrices that behave like a bowl curving up in every direction; they tell you whether an optimization problem has a single bottom.
+  - [2] Singular Value Decomposition (SVD)
+    > Dimensionality reduction, recommenders, low-rank approximation (the idea behind LoRA)
+    ? Splits any matrix into three simple steps: rotate, scale, rotate. Keep the important parts, drop the rest, and you've compressed the data.
+  - [3] Matrix factorizations
+    > LU, QR, Cholesky, eigendecomposition
+    ? Techniques for splitting matrices into simpler pieces so big problems can be solved fast and stably.
+- [1] Calculus
+  > To understand how a model learns
+  ? Calculus is the math of “if I change this a little, how much does the result change?”. That's exactly what a model asks while learning.
+  - [1] Functions, limits, continuity
+    ? Rules that map inputs to outputs, and whether they change smoothly. A model is one giant function.
+  - [1] Derivatives
+    ? Measures how fast something changes. The derivative of the loss tells the model which way reduces the error.
+  - [1] Partial derivatives & gradient
+    > How the loss changes with respect to each parameter
+    ? With millions of knobs, the gradient is the arrow that collects, for every knob, the answer to “what happens to the error if I turn this?”.
+  - [1] Chain rule
+    > Backpropagation is built entirely on it
+    ? The rule for differentiating nested functions by multiplying piece by piece. Deep nets are hundreds of nested functions, so training runs on it.
+  - [2] Jacobian & Hessian
+    ? The Jacobian is the table of all derivatives of a multi-output function; the Hessian shows how the slope changes, i.e. the curvature.
+  - [2] Multivariable calculus
+    > Directional derivatives, geometric meaning of the gradient, level sets
+    ? Working with thousands of variables instead of one. The loss is a mountainous landscape and the gradient a compass pointing up the steepest slope.
+  - [2] Taylor expansion
+    > Theoretical basis of optimization methods
+    ? Imitating a complicated function near a point with a simple polynomial. Optimizers take steps based on this approximation.
+  - [2] Integrals
+    > Probability densities, expected values, normalization
+    ? Summing up something continuous. In probability, “all possibilities add up to 1” is written as an integral.
+  - [2] Automatic differentiation (autodiff)
+    > Computation graphs; forward and reverse mode
+    ? Libraries like PyTorch compute derivatives for you automatically. Knowing how helps a lot when debugging.
+  - [3] Matrix calculus
+    > Derivatives with respect to vectors and matrices
+    ? Taking derivatives with respect to whole matrices instead of single numbers; needed to read the formulas in papers.
+  - [3] Differential equations
+    > ODEs/SDEs; neural ODEs, the math of diffusion models
+    ? Equations describing how something changes over time. Diffusion models describe how noise is added and removed over time this way.
+- [1] Probability
+  > Modeling uncertainty
+  ? AI is never 100% sure; it says “92% cat”. Probability is the language for computing with that uncertainty.
+  - [1] Random variables
+    > Discrete and continuous
+    ? A number whose value depends on chance: a dice roll (discrete) or tomorrow's temperature (continuous).
+  - [1] Probability distributions
+    > PMF, PDF, CDF
+    ? A recipe for how often each outcome happens. A model really outputs “a distribution over possible answers”.
+  - [1] Conditional probability & Bayes' theorem
+    > The heart of Naive Bayes and Bayesian methods
+    ? The rule for updating your belief when new information arrives: “the test was positive, what's the chance I'm sick now?”
+  - [1] Expectation, variance, covariance
+    > Including correlation
+    ? What to expect on average, how spread out results are, whether two things move together. These numbers summarize data.
+  - [2] Joint & marginal distributions, independence
+    ? How several random things behave together, and whether one tells you anything about the other.
+  - Common distributions
+    ? Ready-made probability patterns that keep showing up in nature and data.
+    - [1] Bernoulli, Binomial, Categorical
+      ? A coin flip (Bernoulli), many coin flips (Binomial), a many-sided die (Categorical). Classifier outputs are categorical distributions.
+    - [1] Normal (Gaussian) distribution
+      > Univariate and multivariate Gaussian
+      ? The “bell curve”, dense in the middle and thin at the edges. Heights, measurement errors and many model assumptions follow it.
+    - [2] Poisson & Exponential
+      ? How many events happen in a time window (Poisson) and how long until the next one (Exponential); used for things like server traffic.
+    - [2] Uniform, Beta, Dirichlet
+      ? Uniform gives every outcome equal odds. Beta and Dirichlet model “uncertainty about probabilities” and appear often in Bayesian methods.
+  - [2] Law of large numbers & central limit theorem
+    ? With many trials the average approaches the truth, and averages become bell-shaped. The math behind why we want lots of data.
+  - [2] Markov chains
+    > State transitions, stationary distribution
+    ? Processes where the next state depends only on the current one. Reinforcement learning and older language models build on this.
+  - [3] Sampling methods
+    > Monte Carlo, MCMC, importance sampling
+    ? Approximating something too complex to compute exactly by running many random trials.
+- [1] Statistics
+  > Drawing correct conclusions from data
+  ? Probability asks “given the rule, what happens?”; statistics goes the other way: “I saw this data, what's the rule behind it?”. That's ML too.
+  - [1] Descriptive statistics
+    > Mean, median, standard deviation, quartiles
+    ? Summarizing a dataset with a few numbers; the first look at data before any model.
+  - [1] Bias-variance trade-off
+    ? A too-simple model misses patterns (bias); a too-complex one memorizes noise (variance). Good models balance the two.
+  - [2] Parameter estimation: MLE & MAP
+    ? The question “which settings make this data most likely?”. Training most models is really maximum likelihood estimation.
+  - [2] Hypothesis tests & confidence intervals
+    > p-values, significance
+    ? How to answer “is the new model really better, or was it luck?”.
+  - [2] Bootstrap & resampling
+    ? Repeatedly drawing random samples from your data to measure how reliable a result is.
+  - [2] Bayesian statistics
+    > Prior, likelihood, posterior
+    ? Start with a guess, update it as data arrives. It accounts for uncertainty explicitly.
+  - [2] A/B testing & experiment design
+    ? Show two versions to real users at random and measure which is better; how models are compared in production.
+  - [3] Causal inference
+    > Correlation is not causation; interventions, confounders
+    ? Ice cream sales and drownings rise together, but one doesn't cause the other (both rise in summer). Causal inference looks for real causes.
+- [1] Optimization
+  > “Learning” is really minimizing a loss function
+  ? Like finding the bottom of a valley in the dark: feel the slope, step downhill, repeat. That's model training.
+  - [1] Loss (objective) function
+    ? A formula that measures in one number how wrong the model is. Training aims to make it small.
+  - [1] Gradient descent
+    ? Reducing the error by taking small steps opposite to the gradient. Nearly every model is trained this way.
+  - [1] Stochastic & mini-batch GD (SGD)
+    ? Estimating the gradient from a small chunk of data instead of all of it. Much faster, and the only practical way on big data.
+  - [1] Learning rate
+    ? How big each step is. Too big and you jump over the valley; too small and you walk forever. One of the most important settings.
+  - [2] Momentum & Nesterov
+    ? Keeping the speed of previous steps, like a ball rolling downhill. Helps avoid getting stuck in small dips.
+  - [2] Adaptive methods
+    > AdaGrad, RMSProp, Adam, AdamW
+    ? Methods that tune the step size for each parameter automatically. Adam and AdamW are the most used today.
+  - [2] Learning rate scheduling
+    > Warmup, step decay, cosine
+    ? Changing the step size during training: warm up slowly, move fast in the middle, fine-tune at the end.
+  - [2] Convex optimization
+    ? Bowl-shaped problems with a single bottom, where finding the best answer is guaranteed. Deep nets are sadly not convex.
+  - [3] Constrained optimization & Lagrange multipliers
+    > Used to derive SVMs
+    ? Finding the best answer while obeying rules, like “maximize benefit within this budget”.
+  - [3] Second-order methods
+    > Newton's method, L-BFGS
+    ? Taking smarter steps by looking at how the slope changes, not just the slope. Very fast on small problems, expensive for huge nets.
+  - [3] Derivative-free & combinatorial optimization
+    > Grid search, evolutionary methods, integer programming
+    ? Problems where you can't take derivatives or the options are discrete, like route planning or hyperparameter search.
+- [2] Information Theory
+  > Most loss functions come from here
+  ? The math of measuring information and surprise. “How surprised was the model by the right answer?” is the loss itself.
+  - [2] Entropy
+    ? A measure of how uncertain or unpredictable something is. A fair coin has high entropy; a coin that always lands heads has low.
+  - [1] Cross-entropy
+    > The standard loss for classification and LLMs
+    ? How far are the model's probabilities from the truth? When an LLM predicts the next word, this is the number being minimized.
+  - [2] KL divergence
+    > Used in VAEs and RLHF
+    ? Measures how different two distributions are. Used during training to say “don't drift too far from where you were”.
+  - [2] Perplexity
+    > An evaluation metric for language models
+    ? Roughly how many options a language model is torn between at each word. Lower is better.
+  - [3] Mutual information
+    ? How much knowing one thing tells you about another; used in feature selection and representation learning.
+- [2] Discrete math & numerical methods
+  ? How computers store numbers, graphs, logic, and how fast algorithms run.
+  - [1] Logic & sets
+    ? Computing truth with “and, or, not”, and collections of objects; the basis of programming and classical AI.
+  - [1] Algorithmic complexity (Big-O)
+    ? How much slower an algorithm gets as data grows; it explains why attention is expensive on long texts.
+  - [2] Graph theory
+    > GNNs, knowledge graphs, search algorithms
+    ? Nodes and the edges connecting them. Social networks, maps, molecules and this tree are all graphs.
+  - [2] Combinatorics
+    ? Counting how many possibilities there are; it shows why search problems are so hard.
+  - [2] Floating point & numerical stability
+    > FP32, FP16, BF16, FP8; overflow and underflow
+    ? Computers store numbers with limited precision. Running models in small number formats is fast but needs care.
+  - [3] Geometry & manifolds
+    > Oddities of high-dimensional space, the manifold hypothesis
+    ? Real data isn't scattered randomly in high-dimensional space; it lives on thin, curved surfaces, and models learn those surfaces.

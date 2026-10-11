@@ -1,0 +1,29 @@
+## g3 | audio | Speech & Audio | Speech & Audio
+> Recognizing, generating and processing sound.
+? Turning speech into text and text into speech, understanding music and sounds; the world of voice assistants and auto-captions.
+- [2] Signal processing basics
+  ? How sound becomes numbers in a computer.
+  - [2] Sampling & the Nyquist theorem
+    ? Measuring sound thousands of times per second; measure too rarely and high pitches get lost.
+  - [2] Fourier transform
+    > FFT
+    ? Splitting a sound into its frequencies, like splitting a chord into its notes.
+  - [2] Spectrograms & MFCC
+    ? Drawing a picture of a sound's frequencies over time; audio models often see sound as this “image”.
+- [2] Automatic speech recognition (ASR)
+  > Whisper, wav2vec 2.0, CTC
+  ? Turning speech into text; how meeting notes and subtitles get made.
+- [2] Audio classification
+  ? Working out what a sound is: a dog barking, a siren, breaking glass, a music genre.
+- [3] Text-to-speech (TTS)
+  > Tacotron, VITS, neural vocoders
+  ? Reading text aloud in a natural human voice.
+- [3] Speaker recognition & diarization
+  ? Identifying who is speaking and splitting a recording into “who spoke when”.
+- [3] Audio & music generation
+  ? Generating music or sound effects from a text description.
+- [3] Real-time voice assistants
+  ? Speech models that answer instantly and let you interrupt; low latency is the main challenge.
+- [2] Libraries
+  > librosa, torchaudio
+  ? Tools to load audio, compute spectrograms and train audio models.

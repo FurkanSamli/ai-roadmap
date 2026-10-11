@@ -1,0 +1,148 @@
+## g2 | ml | Machine Learning (ML) | Machine Learning
+> Learning from data instead of hand-writing rules. Deep learning is one of its sub-branches.
+? You don't tell the computer the rules; you show it thousands of examples and it finds the rule itself. Spam filters, credit scores and movie picks all work this way.
+- [1] Core concepts
+  ? The shared vocabulary of every ML method.
+  - [1] Model, parameters, hyperparameters
+    ? The model is the learning formula; parameters are its knobs set by training, hyperparameters the settings you choose beforehand.
+  - [1] Training & inference
+    ? Training is when the model learns; inference is when it uses what it learned on new data.
+  - [1] Overfitting & underfitting
+    ? Like a student who memorized the exam: great on training data, bad on new questions (over). Or one who never studied (under).
+  - [1] Generalization
+    ? A model working well on data it has never seen. The real goal of ML is generalization, not memorization.
+  - [1] Loss functions
+    > MSE, MAE, cross-entropy, hinge
+    ? Different ways of measuring error: mean squared error for predicting numbers, cross-entropy for classification.
+  - [1] Learning paradigms
+    > Supervised, unsupervised, semi-supervised, self-supervised, reinforcement
+    ? Learning from answered examples, from unanswered data, or from rewards and penalties? That's the main split in ML.
+  - [2] Regularization
+    > L1 (Lasso), L2 (Ridge), Elastic Net
+    ? Penalizing a model for getting too complex; the most basic tool against memorization.
+- [3] Learning theory
+  ? The mathematical explanation of why and when a model can generalize.
+  - [3] PAC learning
+    ? A framework that turns “with enough data you'll probably learn approximately right” into exact numbers.
+  - [3] VC dimension & capacity
+    ? A measure of how complex the patterns a model can fit are; more capacity needs more data.
+  - [3] No free lunch theorem
+    ? No single algorithm is best on every problem; which method works depends on the problem's structure.
+  - [3] Double descent
+    ? Classical theory says huge models should overfit, yet giant neural nets still generalize surprisingly well; an active research topic.
+- [1] Supervised learning
+  > Learning an input → output mapping from labeled data
+  ? Learning from examples with known answers: show thousands of “spam / not spam” emails and the model learns to tell them apart.
+  - [1] Regression
+    > Predicting numbers
+    ? Predicting a number: a house price, tomorrow's temperature, a delivery time.
+    - [1] Linear regression
+      ? Drawing the straight line that best passes through the points; the simplest model, still widely used.
+    - [1] Polynomial regression
+      ? Using a curve instead of a straight line; too wiggly a curve overfits.
+    - [2] Ridge, Lasso, Elastic Net
+      ? Linear regression with regularization; Lasso drops useless features by setting them to zero.
+  - [1] Classification
+    > Predicting categories
+    ? Predicting which group something belongs to: spam or not, which digit, which animal.
+    - [1] Logistic regression
+      ? Despite the name it's a classifier: it outputs the probability of “yes”. Simple, fast and interpretable.
+    - [1] k-Nearest Neighbors (kNN)
+      ? Look at the k most similar examples and go with the majority: “you're like your neighbors”.
+    - [1] Naive Bayes
+      ? Using Bayes' theorem while naively assuming features are independent; surprisingly good at text classification.
+    - [1] Decision trees
+      > Gini, entropy, pruning
+      ? A flowchart that decides by asking questions in a row: “Is age over 30? Is income above X?”.
+    - [2] Support Vector Machines (SVM)
+      > Maximum margin, the kernel trick
+      ? Finding the line that separates two groups with the widest gap; with the kernel trick it can draw curved borders too.
+  - [2] Ensemble methods
+    > Combining many models
+    ? Asking a hundred average experts instead of one and taking a vote; usually beats any single model.
+    - [2] Bagging & Random Forest
+      ? Training hundreds of decision trees on different slices of data and voting; reliable and needs little tuning.
+    - [2] Boosting
+      > AdaBoost, Gradient Boosting
+      ? Training models one after another, each focusing on fixing the previous ones' mistakes.
+    - [2] XGBoost, LightGBM, CatBoost
+      > Still among the strongest options on tabular data
+      ? Fast, powerful implementations of boosting; on spreadsheet-style data they often beat deep learning.
+    - [3] Stacking & blending
+      ? Training a “meta model” that takes other models' predictions as input; popular in competitions.
+- [1] Unsupervised learning
+  > Finding structure in unlabeled data
+  ? Finding hidden groups and patterns with nobody giving the answers, like grouping customers by similar behavior.
+  - [1] Clustering
+    ? Putting similar things in the same group.
+    - [1] K-Means
+      ? Pick k centers, assign each point to the nearest, update the centers, repeat; the classic clustering method.
+    - [2] Hierarchical clustering
+      ? Merging groups step by step to build a family tree (dendrogram).
+    - [2] DBSCAN & HDBSCAN
+      ? Treats dense regions as clusters and leaves sparse points as noise; you don't need to give the number of clusters.
+    - [3] Gaussian Mixture Models & EM
+      ? Modeling data as a mix of several bell curves; gives soft answers like “70% belongs to this cluster”.
+  - [2] Dimensionality reduction
+    ? Compressing hundreds of columns into a few without losing much information; for visualization and speed.
+    - [2] PCA
+      > Principal Component Analysis
+      ? Finding the directions where data spreads most and keeping only those; linear algebra's most famous application.
+    - [2] t-SNE & UMAP
+      ? Placing high-dimensional data on a 2-D map with similar items side by side; used to visualize embeddings.
+    - [2] Linear Discriminant Analysis (LDA)
+      ? Dimensionality reduction that finds the directions best separating classes.
+  - [2] Anomaly detection
+    > Isolation Forest, One-Class SVM, LOF
+    ? Finding things that behave unlike the rest: a strange card payment or a machine about to fail.
+  - [2] Association rules
+    > Apriori; market basket analysis
+    ? Finding things that appear together, like “people who buy beer also buy chips”.
+- [3] Semi- & self-supervised learning
+  > Learning from lots of data with few labels
+  ? Labeling is expensive, so these methods learn by making “pretend tasks” from the data itself; LLMs are pretrained this way.
+- [3] Active learning
+  ? The model asks “which examples do I most need labeled?” and only those get labeled.
+- [1] Model evaluation
+  ? Measuring correctly how good a model really is; the wrong metric leads you to the wrong model.
+  - [1] Accuracy, precision, recall, F1
+    ? Accuracy isn't always enough. Cancer screening must not miss patients (recall); a spam filter must not delete good mail (precision).
+  - [1] Confusion matrix
+    ? A table showing which classes the model confuses with which.
+  - [1] Regression metrics
+    > MSE, RMSE, MAE, R²
+    ? Measuring how far number predictions are off on average.
+  - [1] Cross-validation
+    > k-fold
+    ? Splitting data into k parts and testing on a different part each time, so a lucky split doesn't fool you.
+  - [2] ROC curve & AUC
+    > PR curve
+    ? Seeing in one chart how performance changes as the decision threshold moves.
+  - [3] Calibration
+    ? When the model says “80% sure”, is it right about 8 times out of 10? Critical in medicine and finance.
+- [2] Hyperparameter optimization
+  > Grid search, random search, Bayesian optimization (Optuna)
+  ? Automatically trying model settings (learning rate, tree depth...) to find the best ones.
+- [2] Explainability (XAI)
+  > Feature importance, SHAP, LIME, partial dependence
+  ? Answering “why did the model reject this loan?”; needed for trust and often by law.
+- [2] Special problem types
+  ? Common ML problems that have their own methods.
+  - [2] Time series forecasting
+    > ARIMA, exponential smoothing, Prophet, deep models
+    ? Predicting the future from past data: sales, energy use, traffic.
+  - [2] Recommender systems
+    > Collaborative filtering, content-based, matrix factorization
+    ? “Users like you also liked this.” The heart of Netflix, Spotify and Amazon.
+  - [3] Learning to rank
+    ? Learning to order results from most to least relevant; used by search engines and RAG systems.
+  - [3] Probabilistic graphical models
+    ? A broad family of methods modeling relations between many random variables as a graph.
+  - [3] Federated learning
+    > Training without moving data to a center
+    ? The model travels to the phones; the data stays put. Keyboard predictions can be trained this way while keeping privacy.
+  - [3] Online learning
+    ? Updating the model continuously as data arrives, without retraining from scratch.
+- [1] Libraries
+  > scikit-learn, XGBoost, LightGBM, statsmodels
+  ? Ready-made toolboxes for classical ML; with scikit-learn you can train a model in a few lines.

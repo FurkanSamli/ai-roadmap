@@ -1,0 +1,278 @@
+{
+  "areas": {
+    "basics": {
+      "practice": "Write a one-page summary of {topic} with one real product that uses it, and one thing it still cannot do.",
+      "resources": [
+        { "t": "Elements of AI", "u": "https://www.elementsofai.com/", "k": "course" },
+        { "t": "CS50's Introduction to AI with Python", "u": "https://cs50.harvard.edu/ai/", "k": "course" },
+        { "t": "AI For Everyone (Andrew Ng)", "u": "https://www.coursera.org/learn/ai-for-everyone", "k": "course" },
+        { "t": "Artificial Intelligence: A Modern Approach (book site)", "u": "https://aima.cs.berkeley.edu/", "k": "book" },
+        { "t": "Stanford Encyclopedia of Philosophy: Artificial Intelligence", "u": "https://plato.stanford.edu/entries/artificial-intelligence/", "k": "article" }
+      ]
+    },
+    "math": {
+      "practice": "Work through three exercises on {topic} by hand, then check your answers with NumPy.",
+      "resources": [
+        { "t": "Mathematics for Machine Learning (free book)", "u": "https://mml-book.github.io/", "k": "book" },
+        { "t": "3Blue1Brown on YouTube", "u": "https://www.youtube.com/@3blue1brown", "k": "video" },
+        { "t": "Khan Academy: Statistics and probability", "u": "https://www.khanacademy.org/math/statistics-probability", "k": "course" },
+        { "t": "StatQuest with Josh Starmer", "u": "https://www.youtube.com/@statquest", "k": "video" },
+        { "t": "Seeing Theory (visual probability)", "u": "https://seeing-theory.brown.edu/", "k": "interactive" }
+      ]
+    },
+    "prog": {
+      "practice": "Build a small script that uses {topic}, put it in a Git repository and write a README for it.",
+      "resources": [
+        { "t": "The official Python tutorial", "u": "https://docs.python.org/3/tutorial/", "k": "docs" },
+        { "t": "CS50x: Introduction to Computer Science", "u": "https://cs50.harvard.edu/x/", "k": "course" },
+        { "t": "The Missing Semester of Your CS Education", "u": "https://missing.csail.mit.edu/", "k": "course" },
+        { "t": "Pro Git (free book)", "u": "https://git-scm.com/book/en/v2", "k": "book" },
+        { "t": "NeetCode roadmap (algorithm practice)", "u": "https://neetcode.io/roadmap", "k": "practice" }
+      ]
+    },
+    "data": {
+      "practice": "Pick a Kaggle dataset and apply {topic} to it in a notebook; write down what changed in the data.",
+      "resources": [
+        { "t": "Kaggle Learn (pandas, data cleaning, feature engineering)", "u": "https://www.kaggle.com/learn", "k": "course" },
+        { "t": "pandas: Getting started", "u": "https://pandas.pydata.org/docs/getting_started/index.html", "k": "docs" },
+        { "t": "SQLBolt (interactive SQL)", "u": "https://sqlbolt.com/", "k": "interactive" },
+        { "t": "PostgreSQL tutorial", "u": "https://neon.com/postgresql/tutorial", "k": "docs" }
+      ]
+    },
+    "classic": {
+      "practice": "Implement {topic} on a toy problem (a maze, a puzzle or a small game) in plain Python.",
+      "resources": [
+        { "t": "CS50's Introduction to AI with Python", "u": "https://cs50.harvard.edu/ai/", "k": "course" },
+        { "t": "Artificial Intelligence: A Modern Approach (book site)", "u": "https://aima.cs.berkeley.edu/", "k": "book" },
+        { "t": "Stanford CS221: Artificial Intelligence", "u": "https://stanford-cs221.github.io/", "k": "course" },
+        { "t": "MIT 6.034 Artificial Intelligence", "u": "https://web.mit.edu/6.034/www/", "k": "course" }
+      ]
+    },
+    "ml": {
+      "practice": "Implement {topic} from scratch with NumPy on a small dataset, then compare it with scikit-learn.",
+      "resources": [
+        { "t": "Machine Learning Specialization (Andrew Ng)", "u": "https://www.coursera.org/specializations/machine-learning-introduction", "k": "course" },
+        { "t": "Google Machine Learning Crash Course", "u": "https://developers.google.com/machine-learning/crash-course", "k": "course" },
+        { "t": "An Introduction to Statistical Learning (free book)", "u": "https://www.statlearning.com/", "k": "book" },
+        { "t": "scikit-learn User Guide", "u": "https://scikit-learn.org/stable/user_guide.html", "k": "docs" },
+        { "t": "StatQuest with Josh Starmer", "u": "https://www.youtube.com/@statquest", "k": "video" }
+      ]
+    },
+    "dl": {
+      "practice": "Train a small network that uses {topic} in PyTorch, plot the loss curve and explain what you see.",
+      "resources": [
+        { "t": "Neural Networks: Zero to Hero (Andrej Karpathy)", "u": "https://karpathy.ai/zero-to-hero.html", "k": "video" },
+        { "t": "Practical Deep Learning for Coders (fast.ai)", "u": "https://course.fast.ai/", "k": "course" },
+        { "t": "Dive into Deep Learning (free book)", "u": "https://d2l.ai/", "k": "book" },
+        { "t": "PyTorch tutorials", "u": "https://docs.pytorch.org/tutorials/", "k": "docs" },
+        { "t": "Deep Learning (Goodfellow, Bengio, Courville)", "u": "https://www.deeplearningbook.org/", "k": "book" },
+        { "t": "TensorFlow Playground", "u": "https://playground.tensorflow.org/", "k": "interactive" }
+      ]
+    },
+    "nlp": {
+      "practice": "Build a small notebook demo of {topic} with a Hugging Face model and test it on ten of your own examples.",
+      "resources": [
+        { "t": "Hugging Face LLM Course", "u": "https://huggingface.co/learn/llm-course", "k": "course" },
+        { "t": "Stanford CS224N: NLP with Deep Learning", "u": "https://web.stanford.edu/class/cs224n/", "k": "course" },
+        { "t": "The Illustrated Transformer", "u": "https://jalammar.github.io/illustrated-transformer/", "k": "article" },
+        { "t": "LLM Visualization", "u": "https://bbycroft.net/llm", "k": "interactive" },
+        { "t": "Hugging Face Agents Course", "u": "https://huggingface.co/learn/agents-course", "k": "course" }
+      ]
+    },
+    "cv": {
+      "practice": "Apply {topic} to 20 of your own photos and show the results side by side in a notebook.",
+      "resources": [
+        { "t": "Stanford CS231n course notes", "u": "https://cs231n.github.io/", "k": "course" },
+        { "t": "Hugging Face Computer Vision Course", "u": "https://huggingface.co/learn/computer-vision-course", "k": "course" },
+        { "t": "OpenCV tutorials", "u": "https://docs.opencv.org/4.x/d9/df8/tutorial_root.html", "k": "docs" },
+        { "t": "CNN Explainer", "u": "https://poloclub.github.io/cnn-explainer/", "k": "interactive" },
+        { "t": "Ultralytics YOLO docs", "u": "https://docs.ultralytics.com/", "k": "docs" }
+      ]
+    },
+    "audio": {
+      "practice": "Record a few minutes of your own audio and run a {topic} pipeline on it; note where it fails.",
+      "resources": [
+        { "t": "Hugging Face Audio Course", "u": "https://huggingface.co/learn/audio-course", "k": "course" },
+        { "t": "librosa documentation", "u": "https://librosa.org/doc/latest/index.html", "k": "docs" }
+      ]
+    },
+    "genai": {
+      "practice": "Generate outputs with {topic} using an open model, vary one setting at a time and compare the results.",
+      "resources": [
+        { "t": "Hugging Face Diffusion Models Course", "u": "https://huggingface.co/learn/diffusion-course", "k": "course" },
+        { "t": "DeepLearning.AI short courses", "u": "https://www.deeplearning.ai/courses", "k": "course" },
+        { "t": "Prompt engineering overview (Claude docs)", "u": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview", "k": "docs" },
+        { "t": "Practical Deep Learning, Part 2 (fast.ai)", "u": "https://course.fast.ai/Lessons/part2.html", "k": "course" }
+      ]
+    },
+    "rl": {
+      "practice": "Solve a Gymnasium environment (e.g. CartPole) using {topic} and plot the reward per episode.",
+      "resources": [
+        { "t": "Reinforcement Learning: An Introduction (Sutton & Barto)", "u": "http://incompleteideas.net/book/the-book-2nd.html", "k": "book" },
+        { "t": "Hugging Face Deep RL Course", "u": "https://huggingface.co/learn/deep-rl-course", "k": "course" },
+        { "t": "Spinning Up in Deep RL (OpenAI)", "u": "https://spinningup.openai.com/", "k": "course" },
+        { "t": "David Silver's RL lectures", "u": "https://davidstarsilver.wordpress.com/teaching/", "k": "video" },
+        { "t": "Gymnasium", "u": "https://gymnasium.farama.org/", "k": "docs" }
+      ]
+    },
+    "robot": {
+      "practice": "Simulate {topic} for a simple robot (ROS 2 or a Python simulator) before touching real hardware.",
+      "resources": [
+        { "t": "ROS 2 tutorials", "u": "https://docs.ros.org/en/rolling/Tutorials.html", "k": "docs" },
+        { "t": "Modern Robotics (Lynch & Park)", "u": "https://modernrobotics.northwestern.edu/", "k": "course" },
+        { "t": "Steve Brunton on control and dynamics", "u": "https://www.youtube.com/@SteveBrunton", "k": "video" },
+        { "t": "LeRobot (Hugging Face)", "u": "https://github.com/huggingface/lerobot", "k": "docs" }
+      ]
+    },
+    "apps": {
+      "practice": "Find one real product or paper that uses AI for {topic}; write down the data, the model and how it is evaluated.",
+      "resources": [
+        { "t": "Made With ML", "u": "https://madewithml.com/", "k": "course" },
+        { "t": "Full Stack Deep Learning", "u": "https://fullstackdeeplearning.com/", "k": "course" },
+        { "t": "Hugging Face Papers", "u": "https://huggingface.co/papers", "k": "article" }
+      ]
+    },
+    "mlops": {
+      "practice": "Add {topic} to one of your own projects (even a tiny model) and document the setup in its README.",
+      "resources": [
+        { "t": "Made With ML (MLOps)", "u": "https://madewithml.com/", "k": "course" },
+        { "t": "MLOps Zoomcamp (DataTalks.Club)", "u": "https://github.com/DataTalksClub/mlops-zoomcamp", "k": "course" },
+        { "t": "Docker: Get started", "u": "https://docs.docker.com/get-started/", "k": "docs" },
+        { "t": "Kubernetes basics", "u": "https://kubernetes.io/docs/tutorials/kubernetes-basics/", "k": "docs" },
+        { "t": "MLflow documentation", "u": "https://mlflow.org/docs/latest/index.html", "k": "docs" },
+        { "t": "Rules of Machine Learning (Google)", "u": "https://developers.google.com/machine-learning/guides/rules-of-ml", "k": "article" }
+      ]
+    },
+    "infra": {
+      "practice": "Set up {topic} on a free tier or locally, then tear it down again from your notes alone.",
+      "resources": [
+        { "t": "How to Scale Your Model", "u": "https://jax-ml.github.io/scaling-book/", "k": "book" },
+        { "t": "Terraform tutorials", "u": "https://developer.hashicorp.com/terraform/tutorials", "k": "docs" },
+        { "t": "Kubernetes basics", "u": "https://kubernetes.io/docs/tutorials/kubernetes-basics/", "k": "docs" },
+        { "t": "Google Skills (Google Cloud training)", "u": "https://www.skills.google/", "k": "course" },
+        { "t": "AWS: Learn about AI", "u": "https://aws.amazon.com/training/learn-about/ai/", "k": "course" },
+        { "t": "Microsoft Learn: Azure training", "u": "https://learn.microsoft.com/en-us/training/azure/", "k": "course" }
+      ]
+    },
+    "ethics": {
+      "practice": "Pick a real AI system and write a short audit of it from the angle of {topic}: who could be harmed, and how would you check?",
+      "resources": [
+        { "t": "Practical Data Ethics (fast.ai)", "u": "https://ethics.fast.ai/", "k": "course" },
+        { "t": "BlueDot Impact (AI safety courses)", "u": "https://bluedot.org/", "k": "course" },
+        { "t": "EU AI Act explorer", "u": "https://artificialintelligenceact.eu/", "k": "docs" },
+        { "t": "NIST AI Risk Management Framework", "u": "https://www.nist.gov/itl/ai-risk-management-framework", "k": "docs" },
+        { "t": "PAIR Explorables (Google)", "u": "https://pair.withgoogle.com/explorables/", "k": "interactive" }
+      ]
+    },
+    "career": {
+      "practice": "Turn {topic} into a concrete next step this month and write it in your notes with a date.",
+      "resources": [
+        { "t": "Machine Learning Interviews (Chip Huyen)", "u": "https://huyenchip.com/ml-interviews-book/", "k": "book" },
+        { "t": "Kaggle competitions", "u": "https://www.kaggle.com/competitions", "k": "practice" },
+        { "t": "Hugging Face Papers", "u": "https://huggingface.co/papers", "k": "article" },
+        { "t": "arXiv", "u": "https://arxiv.org/", "k": "article" },
+        { "t": "Distill (clear ML research articles)", "u": "https://distill.pub/", "k": "article" }
+      ]
+    }
+  },
+  "topics": {
+    "math/linear-algebra": [
+      { "t": "Essence of Linear Algebra (3Blue1Brown)", "u": "https://www.3blue1brown.com/topics/linear-algebra", "k": "video" },
+      { "t": "MIT 18.06 Linear Algebra (Gilbert Strang)", "u": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "k": "course" },
+      { "t": "Explained Visually: eigenvectors and more", "u": "https://setosa.io/ev/", "k": "interactive" }
+    ],
+    "math/calculus": [
+      { "t": "Essence of Calculus (3Blue1Brown)", "u": "https://www.3blue1brown.com/topics/calculus", "k": "video" },
+      { "t": "The Matrix Calculus You Need for Deep Learning", "u": "https://explained.ai/matrix-calculus/", "k": "article" }
+    ],
+    "math/probability": [
+      { "t": "Seeing Theory (visual probability)", "u": "https://seeing-theory.brown.edu/", "k": "interactive" },
+      { "t": "Khan Academy: Probability", "u": "https://www.khanacademy.org/math/statistics-probability", "k": "course" }
+    ],
+    "math/statistics": [
+      { "t": "StatQuest with Josh Starmer", "u": "https://www.youtube.com/@statquest", "k": "video" },
+      { "t": "ritvikmath", "u": "https://www.youtube.com/@ritvikmath", "k": "video" }
+    ],
+    "math/optimization": [
+      { "t": "Convex Optimization (Boyd & Vandenberghe)", "u": "https://web.stanford.edu/~boyd/cvxbook/", "k": "book" }
+    ],
+    "prog/python": [
+      { "t": "The official Python tutorial", "u": "https://docs.python.org/3/tutorial/", "k": "docs" }
+    ],
+    "prog/scientific-python-ecosystem": [
+      { "t": "NumPy: the absolute basics", "u": "https://numpy.org/doc/stable/user/quickstart.html", "k": "docs" },
+      { "t": "pandas: Getting started", "u": "https://pandas.pydata.org/docs/getting_started/index.html", "k": "docs" }
+    ],
+    "prog/software-engineering-practices": [
+      { "t": "Pro Git (free book)", "u": "https://git-scm.com/book/en/v2", "k": "book" },
+      { "t": "The Missing Semester of Your CS Education", "u": "https://missing.csail.mit.edu/", "k": "course" }
+    ],
+    "ml/model-evaluation": [
+      { "t": "Structuring Machine Learning Projects (Andrew Ng)", "u": "https://www.coursera.org/learn/machine-learning-projects", "k": "course" }
+    ],
+    "dl/neural-network-basics": [
+      { "t": "Neural networks (3Blue1Brown)", "u": "https://www.3blue1brown.com/topics/neural-networks", "k": "video" },
+      { "t": "Neural Networks: Zero to Hero (Andrej Karpathy)", "u": "https://karpathy.ai/zero-to-hero.html", "k": "video" },
+      { "t": "TensorFlow Playground", "u": "https://playground.tensorflow.org/", "k": "interactive" }
+    ],
+    "dl/training-techniques": [
+      { "t": "A Recipe for Training Neural Networks (Karpathy)", "u": "https://karpathy.github.io/2019/04/25/recipe/", "k": "article" }
+    ],
+    "nlp/transformer-based-language-models": [
+      { "t": "The Illustrated Transformer", "u": "https://jalammar.github.io/illustrated-transformer/", "k": "article" },
+      { "t": "LLM Visualization", "u": "https://bbycroft.net/llm", "k": "interactive" },
+      { "t": "Umar Jamil (transformers from scratch)", "u": "https://www.youtube.com/@umarjamilai", "k": "video" }
+    ],
+    "nlp/prompt-engineering": [
+      { "t": "Prompt engineering overview (Claude docs)", "u": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview", "k": "docs" }
+    ],
+    "nlp/inference": [
+      { "t": "Ollama (run models locally)", "u": "https://ollama.com/", "k": "docs" },
+      { "t": "vLLM", "u": "https://vllm.ai/", "k": "docs" }
+    ],
+    "nlp/rag-retrieval-augmented-generation": [
+      { "t": "Sentence Transformers", "u": "https://www.sbert.net/", "k": "docs" },
+      { "t": "LlamaIndex", "u": "https://www.llamaindex.ai/", "k": "docs" },
+      { "t": "LangChain docs", "u": "https://docs.langchain.com/oss/python/langchain/overview", "k": "docs" }
+    ],
+    "nlp/llm-agents": [
+      { "t": "Building effective agents (Anthropic)", "u": "https://www.anthropic.com/engineering/building-effective-agents", "k": "article" },
+      { "t": "Hugging Face Agents Course", "u": "https://huggingface.co/learn/agents-course", "k": "course" }
+    ],
+    "cv/object-detection": [
+      { "t": "Ultralytics YOLO docs", "u": "https://docs.ultralytics.com/", "k": "docs" }
+    ],
+    "genai/diffusion-models": [
+      { "t": "Hugging Face Diffusion Models Course", "u": "https://huggingface.co/learn/diffusion-course", "k": "course" },
+      { "t": "Practical Deep Learning, Part 2 (fast.ai)", "u": "https://course.fast.ai/Lessons/part2.html", "k": "course" }
+    ],
+    "mlops/containerization": [
+      { "t": "Docker: Get started", "u": "https://docs.docker.com/get-started/", "k": "docs" }
+    ],
+    "mlops/orchestration": [
+      { "t": "Kubernetes basics", "u": "https://kubernetes.io/docs/tutorials/kubernetes-basics/", "k": "docs" }
+    ],
+    "mlops/model-serving": [
+      { "t": "FastAPI tutorial", "u": "https://fastapi.tiangolo.com/tutorial/", "k": "docs" }
+    ],
+    "mlops/versioning": [
+      { "t": "DVC: Get started", "u": "https://doc.dvc.org/start", "k": "docs" }
+    ],
+    "mlops/ci-cd": [
+      { "t": "GitHub Actions documentation", "u": "https://docs.github.com/en/actions", "k": "docs" }
+    ],
+    "mlops/monitoring-observability": [
+      { "t": "Prometheus: Overview", "u": "https://prometheus.io/docs/introduction/overview/", "k": "docs" }
+    ],
+    "ethics/model-security": [
+      { "t": "OWASP Top 10 for LLM Applications", "u": "https://owasp.org/projects/top-10-for-large-language-model-applications", "k": "docs" }
+    ],
+    "ethics/law-regulation": [
+      { "t": "EU AI Act explorer", "u": "https://artificialintelligenceact.eu/", "k": "docs" }
+    ],
+    "career/reading-papers": [
+      { "t": "Hugging Face Papers", "u": "https://huggingface.co/papers", "k": "article" },
+      { "t": "Distill", "u": "https://distill.pub/", "k": "article" }
+    ]
+  }
+}

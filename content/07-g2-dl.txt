@@ -1,0 +1,143 @@
+## g2 | dl | Deep Learning (DL) | Deep Learning
+> Many-layered artificial neural networks; the engine behind today's progress in images, text and audio.
+? Networks of millions of simple connected units. Each layer learns something a bit more abstract than the last: edges, then shapes, then faces.
+- [1] Neural network basics
+  ? The parts of a neural network and how it learns.
+  - [1] Artificial neuron & perceptron
+    ? A tiny unit that multiplies inputs by weights, adds them up and passes the sum through a threshold; the network's smallest brick.
+  - [1] Multi-layer perceptron (MLP)
+    ? Stacking neurons in layers; the simplest “deep” network.
+  - [1] Activation functions
+    > Sigmoid, Tanh, ReLU, GELU, SiLU, Softmax
+    ? Small functions that add bends to the network. Without them, even a 100-layer net would be no better than a straight line.
+  - [1] Forward pass
+    ? Pushing the input through the network to get a prediction.
+  - [1] Backpropagation
+    > Computing gradients with the chain rule
+    ? Sending the error backwards and asking every weight “how much did you contribute to this mistake?”.
+  - [2] Weight initialization
+    > Xavier/Glorot, He
+    ? Which random numbers you start with matters; a bad start can stop the network from learning at all.
+  - [2] Vanishing & exploding gradients
+    ? In deep nets the signal either fades away or snowballs as it passes through layers; many modern tricks were invented to fix this.
+  - [3] Universal approximation theorem
+    ? A big enough neural network can imitate almost any function, though the theorem doesn't say how to learn it.
+- [2] Training techniques
+  ? Practical tricks that make a network learn well and stably.
+  - [1] Optimizers
+    > SGD, Adam, AdamW
+    ? Algorithms that update weights based on gradients; most projects start with AdamW.
+  - [1] Transfer learning & fine-tuning
+    > Adapting a pretrained model to your own data
+    ? Instead of training from scratch, take a model that has seen millions of images and train it a bit more on your 500. The most common approach in practice.
+  - [2] Normalization layers
+    > BatchNorm, LayerNorm, RMSNorm
+    ? Keeping numbers between layers in a sensible range to make training faster and more stable.
+  - [2] Regularization
+    > Dropout, weight decay, early stopping
+    ? Ways to prevent memorizing: randomly switching off neurons during training (dropout) or stopping when validation gets worse.
+  - [2] Learning rate strategies
+    > Warmup, cosine decay, LR finder
+    ? Starting slowly, speeding up, then slowing down near the end of training.
+  - [2] Gradient clipping
+    ? Capping very large gradients so a single bad step doesn't wreck training.
+  - [2] Mixed precision
+    > FP16, BF16
+    ? Doing part of the math in smaller number formats to nearly double training speed.
+  - [3] Knowledge distillation
+    > Training a small model from a big one
+    ? Training a small “student” on a big “teacher” model's answers; fast models that fit on phones are made this way.
+- [1] Architectures
+  ? Network designs built for different kinds of data; picking the right one for a job is a core DL question.
+  - [1] Convolutional Neural Networks (CNN)
+    > For images
+    ? Networks that slide a small magnifying glass over an image to catch patterns like edges, corners and textures.
+    - [1] Convolution, stride, padding, pooling
+      ? The building blocks of CNNs: sliding a filter, how many pixels to skip, how to pad the edges, and shrinking the image.
+    - [2] LeNet, AlexNet, VGG
+      ? Historic CNNs, from the first digit readers to the model that started the deep learning revolution.
+    - [2] ResNet & residual connections
+      ? Making 100+ layer networks trainable with “shortcut” connections that skip layers; found in almost every architecture today.
+    - [3] MobileNet, EfficientNet, ConvNeXt
+      ? Modern CNNs that are faster, smaller or more accurate.
+  - [2] Recurrent Neural Networks (RNN)
+    > For sequences
+    ? Networks that read text or audio step by step while carrying a “memory”; they ruled language before transformers.
+    - [2] Vanilla RNN
+      ? The simplest recurrent net, mixing the previous memory with each new input; forgetful on long texts.
+    - [2] LSTM & GRU
+      ? RNNs with “gates” that decide what to remember and forget; much better at long-range dependencies.
+    - [2] Seq2seq
+      > Encoder-decoder
+      ? A setup that reads one sequence and produces another: Turkish sentence in, German sentence out.
+  - [2] Attention mechanism
+    ? The model decides which parts of the input to “look at” while producing output, like focusing on the right source word when translating.
+  - [2] Transformer
+    > The architecture of LLMs and many vision models
+    ? An architecture where all words attend to each other at once. It runs in parallel, so it can train on huge data; the engine of today's AI boom.
+    - [2] Self-attention; query, key, value
+      ? Each word asks a question (query), others show a label (key), and the information (value) of the matches is gathered.
+    - [2] Multi-head attention
+      ? Using several “attention heads” at once; one may track grammar, another meaning, another references.
+    - [2] Encoder, decoder, encoder-decoder
+      ? The encoder understands text (BERT), the decoder generates text (GPT), together they translate (T5).
+    - [3] Positional encoding
+      > Sinusoidal, learned, RoPE
+      ? A transformer doesn't know word order on its own; position information must be added.
+    - [3] Efficient attention
+      > FlashAttention, sparse attention
+      ? Attention's cost grows with the square of text length; these techniques make long texts cheaper.
+  - [2] Autoencoders & VAE
+    ? Networks that learn to compress data into a small code and unpack it again; a VAE can also create new samples from the code.
+  - [2] Generative Adversarial Networks (GAN)
+    ? One net makes fake images, another tries to catch them; both get better by competing.
+  - [3] Diffusion models
+    ? Models that learn to create images by removing noise step by step; most of today's image generators work this way.
+  - [3] Graph Neural Networks (GNN)
+    > GCN, GraphSAGE, GAT
+    ? Networks for connected data like molecules, social networks or road maps; each node gathers information from its neighbors.
+  - [3] Mixture of Experts (MoE)
+    ? The model contains many “expert” sub-networks and only a few run for each word, making huge models cheaper to run.
+  - [3] State space models (SSM)
+    > S4, Mamba
+    ? A newer family of architectures aiming to handle long sequences more efficiently than transformers.
+- [2] Representation learning
+  ? The network learning to turn data into useful numbers (vectors); a good representation is half the job.
+  - [1] Embeddings
+    ? Turning words, images or users into vectors so similar meanings land close together. “King – man + woman ≈ queen.”
+  - [3] Contrastive learning
+    > SimCLR, CLIP
+    ? Learning without labels by saying “these two are views of the same thing, those are different”; CLIP matches images and text this way.
+  - [3] Self-supervised pretraining
+    > Masking, next-token prediction
+    ? Hiding part of the data and making the model guess it, so it learns without labels; every big model starts this way.
+- [1] Frameworks
+  ? The libraries used to code neural networks.
+  - [1] PyTorch
+    > The most common in research and industry
+    ? Today's standard deep learning library; the first framework to learn.
+  - [1] Hugging Face
+    > Transformers, Datasets, Diffusers libraries and the model hub
+    ? A platform that lets you use thousands of ready-made models and datasets in a few lines of code.
+  - [2] TensorFlow & Keras
+    ? Google's deep learning library; still common in older projects and on mobile.
+  - [2] PyTorch Lightning & Accelerate
+    ? Helpers that remove boilerplate from training loops and make multi-GPU training easier.
+  - [3] JAX
+    ? Google's fast, functional-style computing library, used mostly in research and on TPUs.
+- [3] Scaling
+  ? The science and engineering of growing models to billions of parameters and thousands of GPUs.
+  - [3] Scaling laws
+    > How data, parameters and compute relate
+    ? Observations that performance improves predictably as models and data grow; the reason giant models get built.
+  - [3] Distributed training
+    > Data, tensor and pipeline parallelism
+    ? Training a model or dataset too big for one GPU by splitting it across many.
+  - [3] DeepSpeed, FSDP, Megatron
+    ? Ready-made systems for training huge models across many GPUs.
+  - [3] Memory-saving techniques
+    > Gradient accumulation, activation checkpointing
+    ? Spreading computation over time so bigger models or batches fit in limited GPU memory.
+- [3] Interpretability
+  > Saliency maps, Grad-CAM, attention visualization
+  ? Visualizing which part of an image or text the network looked at when deciding.

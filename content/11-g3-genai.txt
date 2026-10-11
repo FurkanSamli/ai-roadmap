@@ -1,0 +1,45 @@
+## g3 | genai | Generative AI | Generative AI
+> Models that create new text, images, audio and video.
+? AI that creates something new instead of recognizing what exists: a photo never taken, a song never written.
+- [2] Generative vs discriminative models
+  > Learning p(x) vs learning p(y|x)
+  ? A discriminative model asks “is this a cat?”; a generative model learns “what do cats look like?” and can draw new ones.
+- [2] Autoregressive models
+  > Generating token by token; LLMs belong here
+  ? Generating by predicting each next piece from the previous ones; text is written this way, sometimes images and audio too.
+- [3] Variational autoencoders (VAE)
+  ? Models that learn to compress data into a smooth “latent space” and can sample new examples from it.
+- [3] GANs
+  > StyleGAN, CycleGAN, Pix2Pix
+  ? A forger versus a detective: the generator tries to make realistic images, the discriminator tries to catch fakes.
+- [3] Diffusion models
+  ? The method behind most of today's image and video generators.
+  - [3] Noising and denoising (DDPM)
+    ? Learning to ruin an image by adding noise step by step, then to reverse it. Starting from pure noise, an image emerges like a sculpture.
+  - [3] Latent diffusion
+    > Stable Diffusion
+    ? Running diffusion in a small compressed space instead of on raw pixels; much faster.
+  - [3] Classifier-free guidance
+    ? The knob that sets how strictly generation follows the text description.
+  - [3] Flow matching & DiT
+    ? Newer, more efficient variants of diffusion; transformer-based diffusion models.
+- [3] Control & personalization
+  > ControlNet, style LoRAs, DreamBooth
+  ? Steering generation with a pose, a sketch or a few sample photos: “draw this person in this pose”.
+- [2] Modalities
+  ? The different kinds of content generative AI produces.
+  - [2] Text-to-image
+    ? Turning a written description into an image.
+  - [2] Code generation
+    ? Writing code from a description and fixing existing code; one of the uses changing software development most.
+  - [3] Text-to-video
+    ? Generating short videos from a description; keeping things consistent over time is the hard part.
+  - [3] Text-to-audio & music
+    ? Generating sound effects, speech or music from a description.
+  - [3] 3D content generation
+    ? Generating 3-D objects and scenes from text or images, for games and design.
+- [3] Multimodal models
+  ? Models that understand and generate text, images and audio together.
+- [3] Evaluation
+  > FID, CLIP score, human evaluation
+  ? Measuring how “good” a generated image is is hard; numeric scores are used alongside human judgment.

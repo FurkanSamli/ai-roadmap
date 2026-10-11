@@ -1,0 +1,47 @@
+## g5 | career | Research & Career | Research & Career
+> Keeping up with the field and finding your place in it.
+? AI moves very fast. This cluster shows how to keep up and what career paths exist.
+- [1] Career paths
+  ? The main roles in AI and what each mostly does.
+  - [1] Data Scientist
+    > Analysis, statistics, classical ML
+    ? Turns data into insights that guide business decisions; heavy on statistics and communication.
+  - [1] ML Engineer
+    > Building models and taking them to production
+    ? Both builds models and turns them into real products; needs strong software engineering.
+  - [1] AI / LLM Application Engineer
+    > Building products with LLMs, RAG, agents
+    ? Builds products on top of existing large models; one of the fastest-growing roles right now.
+  - [1] MLOps / ML Platform Engineer
+    > Infrastructure, deployment, automation
+    ? Builds the platform other teams use to train and ship models; Docker and Kubernetes are their world.
+  - [1] Data Engineer
+    > Data pipelines
+    ? Builds the pipelines that get data to models correctly, cleanly and on time.
+  - [1] Vision / NLP / Autonomous Systems Engineer
+    > Domain specialization
+    ? An engineer who goes deep in one area, for example perception systems in automotive.
+  - [1] Research Scientist / Engineer
+    > New methods; usually a master's or PhD
+    ? Develops methods that don't exist yet and publishes papers.
+- [1] Building a portfolio
+  > Kaggle, GitHub projects, blog posts, open-source contributions
+  ? End-to-end projects that show what you know: collect data, train a model, deploy it with Docker, put it on GitHub.
+- [2] Reading papers
+  ? The field's newest ideas appear in papers first.
+  - [2] Sources
+    > arXiv, Hugging Face Papers, Semantic Scholar
+    ? Where new papers get published and followed.
+  - [2] How to read a paper
+    > Abstract → figures → conclusion → method
+    ? Reading a paper in layers instead of front to back: first what it claims, then how it does it.
+  - [3] Reproducing papers in code
+    ? Coding up a paper's result yourself; one of the best ways to learn.
+- [2] Major conferences
+  > NeurIPS, ICML, ICLR; CVPR, ICCV; ACL, EMNLP
+  ? Where the year's most important research is presented: general ML, vision and language each have their own.
+- [2] Experiment design & reproducibility
+  > Fixed seeds, ablations, baselines
+  ? Showing that an improvement really comes from your idea, not luck.
+- [2] Technical writing & presenting
+  ? Explaining your results clearly and convincingly; useful in theses, reports and interviews.

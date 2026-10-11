@@ -1,0 +1,24 @@
+## g3 | robot | Robotics & Embodied AI | Robotics
+> AI perceiving and moving in the physical world.
+? Bringing intelligence out of the screen into the real world: machines that sense, find their way and grab things.
+- [2] ROS
+  > Robot Operating System
+  ? The standard software framework for robots; it carries messages between sensors, motors and algorithms.
+- [3] Perception & sensor fusion
+  > Camera, LiDAR, radar
+  ? Combining data from different sensors into a reliable picture of the surroundings.
+- [3] SLAM
+  > Simultaneous localization and mapping
+  ? A robot mapping an unknown place while also working out where it is on that map.
+- [3] Motion planning & kinematics
+  ? Working out how a robot arm or vehicle reaches its goal without hitting obstacles.
+- [3] Control theory
+  > PID, model predictive control (MPC)
+  ? Sending constant small corrections to motors to keep a system where you want it, like cruise control.
+- [3] Simulation & Sim2Real
+  > Isaac Sim, MuJoCo, Gazebo
+  ? Training a robot millions of times in a virtual world, then transferring it to the real one.
+- [3] Autonomous vehicles
+  ? Among the most complex robotic systems, where perception, prediction, planning and control all work together.
+- [3] Vision-language-action models (VLA)
+  ? Models that understand an instruction like “pick up the red cup” and drive the robot directly.
