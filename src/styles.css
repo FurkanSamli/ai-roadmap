@@ -102,6 +102,16 @@ a { color: inherit; }
 .prog .ptx .b { color: var(--learn); } .prog .ptx .c { color: var(--faint); }
 .rm-head .prog .ptx { justify-content: center; }
 
+/* Level filter (view only) */
+.lv-filter { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px; margin-top: 4px; }
+.lv-lab { font: 500 11.5px var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--faint); margin-right: 4px; }
+.lv-filter button { display: inline-flex; align-items: center; gap: 7px; height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--line-2); background: transparent; color: var(--muted); cursor: pointer; font-size: 13px; }
+.lv-filter button:hover { border-color: var(--ink); color: var(--ink); }
+.lv-filter button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.lv-filter button[aria-pressed="true"] .pips i { border-color: var(--bg); }
+.lv-filter button[aria-pressed="true"] .pips i.on { background: var(--bg); }
+.lv-filter .n { font: 11px var(--f-mono); opacity: .7; }
+
 /* Roadmap body */
 .rm { position: relative; max-width: 1260px; margin: 0 auto; padding: 10px 24px 40px; }
 .wires { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
@@ -140,6 +150,10 @@ a { color: inherit; }
 .node[data-st="2"] { border-color: color-mix(in srgb, var(--done) 55%, var(--line-2)); background: var(--done-bg); }
 .node[data-st="2"] .nm { color: var(--muted); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--done) 75%, transparent); text-decoration-thickness: 1.5px; }
 .node[data-st="3"] { opacity: .5; border-style: dashed; background: transparent; }
+
+/* level filter: placed after the status styles so it wins over skipped (.5) */
+.hide-l1 :is(.node, .tl-row)[data-lv="1"], .hide-l2 :is(.node, .tl-row)[data-lv="2"], .hide-l3 :is(.node, .tl-row)[data-lv="3"] { opacity: .16; }
+.hide-l1 .node[data-lv="1"]:hover, .hide-l2 .node[data-lv="2"]:hover, .hide-l3 .node[data-lv="3"]:hover { opacity: .55; }
 
 /* Status icon: empty / half (learning) / check (learned) / dash (skipped) */
 .st-btn, .st-ico { position: relative; flex: none; width: 18px; height: 18px; border-radius: 50%; border: 1.6px solid var(--line-2); background: transparent; padding: 0; }

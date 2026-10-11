@@ -25,14 +25,25 @@ export function statusBtn(n) {
   return b;
 }
 
-// Click handler used by every topic box/row: plain click opens the drawer,
-// Shift + click marks learning, Alt + click marks learned.
+// Click handlers used by every topic box/row: plain click opens the drawer,
+// Shift + click marks learning, Alt + click marks learned, Cmd/Ctrl + click or
+// right-click marks skipped. Each shortcut toggles back to "not started".
+const toggleStatus = (n, v) => setStatus(n, st(n) === v ? 0 : v);
+
 export function topicClick(n) {
   return (ev) => {
-    if (n.kind === 'node' && ev.shiftKey) { setStatus(n, st(n) === 1 ? 0 : 1); return; }
-    if (n.kind === 'node' && ev.altKey) { setStatus(n, st(n) === 2 ? 0 : 2); return; }
+    if (n.kind === 'node') {
+      if (ev.shiftKey) { toggleStatus(n, 1); return; }
+      if (ev.altKey) { toggleStatus(n, 2); return; }
+      if (ev.metaKey || ev.ctrlKey) { toggleStatus(n, 3); return; }
+    }
     actions.openTopic(n);
   };
+}
+
+export function bindTopic(btn, n) {
+  btn.addEventListener('click', topicClick(n));
+  if (n.kind === 'node') btn.addEventListener('contextmenu', (ev) => { ev.preventDefault(); toggleStatus(n, 3); });
 }
 
 // Progress block: bar + "x / y learned · z learning · w skipped"
@@ -56,6 +67,7 @@ export function topicList(list) {
   list.forEach((n) => {
     const li = el('li'), row = el('div', 'tl-row');
     row.dataset.sid = n.id;
+    row.dataset.lv = levelOf(n);
     if (n.children.length) {
       const ch = el('button', 'tl-chev');
       ch.type = 'button'; ch.setAttribute('aria-expanded', 'false'); ch.setAttribute('aria-label', t('expand'));
@@ -70,7 +82,7 @@ export function topicList(list) {
     row.appendChild(statusBtn(n));
     const nm = el('button', 'tl-nm', n.t);
     nm.type = 'button';
-    nm.addEventListener('click', topicClick(n));
+    bindTopic(nm, n);
     row.appendChild(nm);
     if (store.nt[n.id]) row.appendChild(el('span', 'tl-note', '✎'));
     row.appendChild(pips(levelOf(n)));

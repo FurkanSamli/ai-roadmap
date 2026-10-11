@@ -72,8 +72,9 @@ export function searchLinks(e) {
 
 // Suggests what to open next: something you are learning, otherwise the first
 // first-level topic you have not touched yet (in roadmap order).
-export function nextUp() {
-  const learning = model.nodes.filter((n) => store.st[n.id] === LEARNING);
-  if (learning.length) return learning[0];
-  return model.nodes.find((n) => n.depth === 0 && !store.st[n.id]) || model.nodes.find((n) => !store.st[n.id]) || null;
+// `visible` (optional) limits it to topics shown by the level filter.
+export function nextUp(visible = () => true) {
+  const ok = model.nodes.filter(visible);
+  return ok.find((n) => store.st[n.id] === LEARNING)
+    || ok.find((n) => n.depth === 0 && !store.st[n.id]) || ok.find((n) => !store.st[n.id]) || null;
 }

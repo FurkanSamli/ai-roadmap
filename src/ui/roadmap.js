@@ -9,7 +9,9 @@ import { GROUPS, gById } from '../data/groups.js';
 import { hours, nextUp } from '../data/learn.js';
 import { store } from '../store.js';
 import { t } from '../strings.js';
-import { statusBtn, topicClick, progBlock } from './common.js';
+import { statusBtn, bindTopic, progBlock } from './common.js';
+import { levelFilter, levelOn } from './levels.js';
+import { levelOf } from '../data/learn.js';
 import { refreshStatus } from './status.js';
 
 const $ = (id) => D.getElementById(id);
@@ -62,7 +64,7 @@ function header(root) {
     h.appendChild(progBlock(root));
     const nx = el('button', 'btn solid', t('nextUp') + ' →');
     nx.type = 'button';
-    nx.onclick = () => { const n = nextUp(); if (n) actions.goTo(n.parent, n); else nx.textContent = t('nextNone'); };
+    nx.onclick = () => { const n = nextUp(levelOn); if (n) actions.goTo(n.parent, n); else nx.textContent = t('nextNone'); };
     h.appendChild(nx);
   } else {
     h.dataset.group = root.branch.group;
@@ -79,6 +81,7 @@ function header(root) {
     det.type = 'button'; det.onclick = () => actions.openTopic(root);
     h.appendChild(det);
   }
+  h.appendChild(levelFilter(root));
   h.appendChild(legend());
 }
 
@@ -89,12 +92,12 @@ function box(e, spine) {
   d.dataset.id = e.id;
   d.dataset.group = e.branch.group;
   if (store.nt[e.id]) d.classList.add('noted');
-  if (e.kind === 'node') { d.dataset.sid = e.id; d.appendChild(statusBtn(e)); }
+  if (e.kind === 'node') { d.dataset.sid = e.id; d.dataset.lv = levelOf(e); d.appendChild(statusBtn(e)); }
   const main = el('button', 'node-main');
   main.type = 'button';
   main.appendChild(el('span', 'nm', e.t));
   if (e.children.length) { const k = el('span', 'cnt'); k.dataset.cnt = e.id; main.appendChild(k); }
-  main.addEventListener('click', topicClick(e));
+  bindTopic(main, e);
   d.appendChild(main);
   if (spine && e.children.length) {
     const a = el('a', 'dive', '→');

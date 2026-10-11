@@ -13,6 +13,7 @@ import { refreshStatus } from './ui/status.js';
 import { initSearch, focusSearch } from './ui/search.js';
 import { initBackup, isModalOpen, closeModal } from './ui/backup.js';
 import { initStore, onSync } from './store.js';
+import { initLevels } from './ui/levels.js';
 
 async function loadContent() {
   const get = async (f) => { const r = await fetch('content/' + f); if (!r.ok) throw new Error('Could not load: ' + f); return r; };
@@ -89,6 +90,7 @@ async function start() {
   }
 
   initWires();
+  initLevels();
   initSyncBadge();
   initSearch();
   initBackup();

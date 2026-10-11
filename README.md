@@ -12,7 +12,10 @@ underneath to shipping models in production. Inspired by the roadmap.sh style.
   a four-step plan for how to learn it: intuition, curated free resources, a practice idea
   and a self-check.
 - **Track your progress.** Mark topics as *Learning*, *Learned* or *Skip*
-  (Shift + click: learning, Alt + click: learned). Progress bars update everywhere.
+  (Shift + click: learning, Alt + click: learned, ⌘/Ctrl + click or right-click: skip;
+  the same shortcut again sets it back). Progress bars update everywhere.
+- **Filter by level.** Show *Basic*, *Intermediate* and/or *Advanced* topics, in any
+  combination. It only changes the view: other topics fade out, nothing else changes.
 - **Notes and search.** Per-topic notes that save automatically; search with `/`.
 - **Saved to a local database.** Progress is saved automatically to a SQLite file in the
   project folder (see below). Export/import as JSON from **Data**; files from

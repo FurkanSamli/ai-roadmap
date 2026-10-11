@@ -33,7 +33,8 @@ src/data/model.js       content/*.txt parser and data model (core, branches, nod
 src/data/learn.js       "How to learn": levels, time estimate, key points/checklist, resources, practice, search links, next up
 src/ui/roadmap.js       Roadmap view: header, spine + side clusters, SVG wires, selection highlight
 src/ui/drawer.js        Topic drawer: status, plain words, what to learn, how to learn, notes, prev/next
-src/ui/common.js        Shared pieces: status button, level pips, progress block, topic list, click shortcuts
+src/ui/common.js        Shared pieces: status button, level pips, progress block, topic list, click shortcuts (bindTopic)
+src/ui/levels.js        Level filter (view only): body.hide-l1..3 fades boxes/rows with that data-lv; remembered in localStorage
 src/ui/status.js        Status changes + refreshing every indicator (data-sid / data-pid)
 src/ui/search.js        Search
 src/ui/backup.js        Data dialog: where it is saved, export (download / copy), import, reset
